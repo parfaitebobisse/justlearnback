@@ -1,0 +1,63 @@
+.container_radios_type_paiement{
+    height: 100% !important;
+}
+
+.bloc_validation button{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+#type_etudiant{
+    width: 47%;
+}
+
+#bloc_matricule{
+    width: 100%;
+}
+
+.custom-select{
+    border: none;
+}
+
+.bloc_depot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: dashed 1px #979797;
+    border-radius: 21px;
+    min-height: 222px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    padding: 20px 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.bloc_depot .image_depot{
+    height: 89px;
+    width: 70px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.bloc_depot .paragraphe_depot{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.38px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+
+#champs_photo{
+    border: none;
+}
+
+.bloc_contenu_dashbord{
+    padding-left: 15px;
+}

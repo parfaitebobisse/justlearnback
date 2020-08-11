@@ -1,0 +1,118 @@
+
+html{
+    background-color: #fff;
+    height: auto;
+}
+
+body{
+    background-color: #fff;
+}
+
+main{
+    height: 100vh;
+    padding-top: 0;
+    position: relative;
+}
+
+main:before {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:url("../sources/images/logo.png") 0 0 no-repeat;
+    background-color: #3b3b3b30;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.wrapper{
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* .contain-logo{
+    top: -110px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    padding: 35px;
+    border-radius: 20px;
+    border-radius: 99px;
+    background: linear-gradient(transparent 50%, #f0f0f0 50%);
+} */
+
+.first #icon{
+    height: 175px;
+    width: unset;
+    border-radius: 100px;
+    margin-top: 10px;
+}
+
+#formContent {
+    -webkit-box-shadow: 0 1px 15px 0px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 1px 15px 0px rgba(0, 0, 0, 0.13);
+}
+
+form{
+    margin-top: 15px;
+}
+
+h1{
+    font-size: 25px;
+    color: #626262;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-family: "poppins";
+}
+
+#formFooter {
+    background-color: #f3f3f338;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    -webkit-box-shadow: 0px 5px 20px 0 rgba(33, 26, 126, 0.61);
+    box-shadow: 0px 5px 20px 0 rgba(33, 26, 126, 0.61);
+    background-color: #1e1870d4;
+}
+
+.fadeIn.third, .fadeIn.third, .fadeIn.fourth{
+    margin-top: 15px;
+}
+
+.erreur{
+    color: #ea0d0deb;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 15px;
+    display: none;
+}
+
+@media(max-width: 480px){
+    .container{
+        padding: 0;
+    }
+    .wrapper{
+        padding: 0;
+        margin-top: 25px;
+    }
+    .erreur{
+        font-size: 11px;
+    }
+}
+
+.bloc_boutons{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.bloc_boutons button{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    width: 50%;
+}

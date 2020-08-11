@@ -1,0 +1,116 @@
+.container_radios_type_paiement{
+    height: 100% !important;
+}
+
+.bloc_validation button{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+#type_etudiant{
+    width: 47%;
+}
+
+#bloc_matricule{
+    width: 100%;
+}
+
+.custom-select{
+    border: none;
+}
+
+.bloc_depot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: dashed 1px #979797;
+    border-radius: 21px;
+    min-height: 222px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    padding: 20px 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.bloc_depot .image_depot{
+    height: 89px;
+    width: 70px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.bloc_depot .paragraphe_depot{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.38px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+
+#champs_photo{
+    border: none;
+}
+
+
+/*modificatio  plateforme*/
+
+.denomination_plateforme{
+    margin: auto;
+    text-align: center;
+    width: 90%;
+    margin-top: 30px;
+}
+
+.denomination_plateforme input{
+    text-transform: uppercase;
+}
+
+.bloc_classes{
+    margin-top: 45px;
+}
+
+
+.bloc_classes h2{
+    font-size: 20px;
+    color: #05386B;
+    text-align: center;
+}
+
+.container_classes{
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 35px;
+}
+
+.container_classes .container_confirmation_check{
+    margin-right: 25px;
+}
+
+.bloc_classes .bloc_boutons{
+    justify-content: flex-start;
+    padding-left: 50px;
+    flex-direction: column;
+}
+
+.bloc_classes .bloc_boutons .container_champs_paiement{
+    width: 300px;
+}
+
+.bloc_classes .bloc_boutons button{
+    padding: 8px 15px;
+    width: fit-content;
+    margin-top: 5px;
+}
+
+.bloc_depot{
+    margin-left: 50px;
+}

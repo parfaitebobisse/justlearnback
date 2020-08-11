@@ -1,0 +1,269 @@
+
+.titre_nombre_etudiants{
+    font: bold 150%/120% arial,helvetica,sans-serif;
+    padding-bottom: 0;
+    padding-top: .75rem;
+    padding-bottom: 0;
+    color: #6c757d;
+    text-align: left;
+    caption-side: bottom;
+    margin-bottom: 0;
+
+}
+
+.bloc_sous_menu_dashbord{
+    padding-left: 50px;
+}
+
+.graph{
+    height: 350px;
+}
+
+.graph tbody{
+    height: 325px;
+}
+
+.bloc_boutons{
+    margin-top: 0;
+}
+
+.limiter{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.limiter thead th:nth-child(3){
+    width: 20%;
+}
+
+.limiter thead th:nth-child(4){
+    width: 20%;
+}
+
+.limiter thead th:nth-child(5){
+    width: 25%;
+}
+
+
+.limiter tbody td:nth-child(3){
+    width: 20%;
+}
+
+.limiter tbody td:nth-child(4){
+    width: 20%;
+}
+
+.limiter tbody td:nth-child(5){
+    width: 25%;
+}
+
+#taux_reussite_total{
+    margin-top: 100px;
+}
+
+.container_champs_paiement{
+    width: 23%;
+    /* border: none; */
+}
+
+.container_champs_paiement .custom-select{
+    /* border: none; */
+}
+
+.champs_text_paiement{
+    padding-right: 10px;
+    border: none;
+}
+
+
+/*modificaiton emploie de temps */
+
+.entete_apercu{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 70px;
+}
+
+#apercu{
+	display: inline-block;
+	width: fit-content;
+	width: 20%;
+	font-weight: 300;	
+}
+
+#nom_classe{
+	display: inline-block;
+	text-align: center;
+	width: 80%;
+	color: #05386B;
+	padding-top: 0;
+}
+
+
+.limiter thead th{
+    text-align: center;
+}
+
+.limiter thead th:nth-child(1){
+    width: 25%;
+}
+.limiter thead th:nth-child(2){
+    width: 15%;
+    
+}
+.limiter thead th:nth-child(3){
+    width: 15%;
+    
+}
+.limiter thead th:nth-child(4){
+    width: 15%;
+    
+}
+.limiter thead th:nth-child(5){
+    width: 15%;
+    
+}
+.limiter thead th:nth-child(6){
+    width: 15%;
+    
+}
+
+
+.limiter tbody td{
+	text-align: center;
+	height: 80px;
+}
+
+.limiter tbody td:nth-child(1){
+	width: 25%;
+	font-weight: 600;
+}
+.limiter tbody td:nth-child(2){
+    width: 15%;
+    
+}
+.limiter tbody td:nth-child(3){
+    width: 15%;
+    
+}
+.limiter tbody td:nth-child(4){
+    width: 15%;
+    
+}
+.limiter tbody td:nth-child(5){
+    width: 15%;
+    
+}
+.limiter tbody td:nth-child(6){
+    width: 15%;
+    
+}
+
+
+.modifier_emploi{
+	margin-top: 30px;
+	text-align: center;
+	margin-left: 50px;
+}
+
+.modifier_emploi button{
+	padding:  10px 40px;
+}
+
+#table_modif_emploie .custom-select{
+	/* border: none; */
+	width: 80%;
+}
+
+
+#table_modif_emploie .champs_text_paiement{
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+
+.bloc_recherche{
+    width: 23%;
+    margin-top: 43px;
+    justify-content: center;   
+}
+
+.sous_bloc_recherche{
+    box-shadow: 0 1px 4px 0 rgba(20,147,160,0.15);
+    border-bottom: 1px solid #6c757d;
+    border-radius: 0px;
+}
+
+.sous_bloc_recherche input{
+    height: 38px;
+}
+
+.sous_bloc_recherche input{
+    padding: 13px 10px 13px 10px;
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    outline: unset !important;
+}
+
+.form-control:focus{
+    box-shadow: none !important;
+    border-color: #ced4da;
+}
+
+.input-group-text{
+    padding: 0;
+}
+
+.bouton_recherche_1{
+    border: 1px solid #ced4da;
+    border-left: none;
+    margin-left: unset;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+#liste_etudiant_note{
+    margin-left: 0;
+}
+
+#liste_etudiant_note thead th:nth-child(1){
+    width: 10%;
+}
+
+#liste_etudiant_note thead th:nth-child(3){
+    width: 25%;
+}
+
+#liste_etudiant_note thead th:nth-child(4){
+    width: 20%;
+}
+
+
+#liste_etudiant_note td:nth-child(1){
+	width: 10%;
+	font-weight: unset
+} 
+
+
+#liste_etudiant_note td:nth-child(3){
+	width: 25%;
+	font-weight: unset
+}
+
+#liste_etudiant_note td:nth-child(4){
+	width: 20%;
+	font-weight: unset
+} 
+
+#liste_etudiant_note .container_radio{
+    width: fit-content;
+    margin: auto;
+}
+
+#total_row td{
+    height: 20px !important;
+}

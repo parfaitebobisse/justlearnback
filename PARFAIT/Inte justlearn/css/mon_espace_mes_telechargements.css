@@ -1,0 +1,117 @@
+.procedure{
+    padding: 10px 30px;
+    border: 1px solid #EEEEEE;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    max-width: 62.15vw;
+    margin-bottom: 19px;
+}
+
+.titre_procedure{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.corps_procedure p{
+    margin: 0;
+    margin-top: 5px;
+}
+
+/* reponsive procédures */
+
+@media (max-width: 1024px){
+    .procedure{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 320px){
+    .titre_procedure{
+        font-size: 15px;
+    }
+    .bloc_contenu_dashbord{
+        font-size: 14px;
+    }
+}
+
+.liste_type_2 a{
+    border-bottom: solid 1px #55EFC4;
+    background-color: rgba(85,239,196,0.2);
+    color: #05386B;
+}
+
+.liste_type_2 li a{
+    border-bottom: solid 1px #55EFC4;
+    background-color: rgba(85,239,196,0.2);
+}
+
+@media (max-width: 780px){
+    .entete_corps_dashbord{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .bloc_boutons{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px){
+    #envoyer_document{
+        font-size: 14px;
+    }
+
+    .liste_type_2 li:nth-child(1){
+        width: 40%;
+    }
+    .liste_type_2 li:nth-child(2){
+        width: 60%;
+    }
+}
+
+.bouton_tableau{
+    margin-right: 28px;
+}
+
+.entete_documents .sous_entete_document:nth-child(2){
+    margin-right: 80px;
+}
+
+.nom_fichier:nth-child(1), .nom_fichier_corps:nth-child(1){
+    width: 65%;
+}
+
+.menu_action_responsive{
+    min-width: 52vw;
+    left: 5px !important;
+    top: -15px !important;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+@media (max-width: 480px){
+    .action:nth-child(2), .action_corps:nth-child(2){
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        width: fit-content;
+    }
+
+    .corps_documents{
+        margin-top: 0px;
+    }
+
+    .bloc_contenu_dashbord{
+        margin-top: 10px;
+    }
+}
