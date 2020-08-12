@@ -18,7 +18,7 @@
                             <a href="#" class="anul_lien lien_navigation_dashbord active">
                                 <div class="container_cours">
                                     <div class="container_photo_cours">
-                                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
                                     </div>
                                     <div class="container_texte">
                                         <span class="titre_cours">GL3 - RSE</span>
@@ -33,7 +33,7 @@
                             <a href="#" class="anul_lien lien_navigation_dashbord">
                                 <div class="container_cours">
                                     <div class="container_photo_cours">
-                                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
                                     </div>
                                     <div class="container_texte">
                                         <span class="titre_cours">GL3 - RSE</span>
@@ -48,7 +48,7 @@
                             <a href="#" class="anul_lien lien_navigation_dashbord">
                                 <div class="container_cours">
                                     <div class="container_photo_cours">
-                                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
                                     </div>
                                     <div class="container_texte">
                                         <span class="titre_cours">GL3 - RSE</span>
@@ -63,7 +63,7 @@
                             <a href="#" class="anul_lien lien_navigation_dashbord">
                                 <div class="container_cours">
                                     <div class="container_photo_cours">
-                                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
                                     </div>
                                     <div class="container_texte">
                                         <span class="titre_cours">GL3 - RSE</span>
@@ -521,8 +521,8 @@
                                     <div id="sous_bloc_courant_4">
                                         <div class="article_media petit_container_video">
                                             <div class="bloc_video_flou">
-                                                <video class="video_media" poster="../sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png">
-                                                    <source src="../sources/Videos/Video2.mp4" type="video/mp4">
+                                                <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
+                                                    <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
                                             </div>                
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
@@ -535,8 +535,8 @@
                                         </div>
                                         <div class="article_media petit_container_video">
                                             <div class="bloc_video_flou">
-                                                <video class="video_media" poster="../sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png">
-                                                    <source src="../sources/Videos/Video2.mp4" type="video/mp4">
+                                                <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
+                                                    <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
                                             </div>                
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
@@ -549,8 +549,8 @@
                                         </div>
                                         <div class="article_media petit_container_video">
                                             <div class="bloc_video_flou">
-                                                <video class="video_media" poster="../sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png">
-                                                    <source src="../sources/Videos/Video2.mp4" type="video/mp4">
+                                                <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
+                                                    <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
                                             </div>                
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
@@ -563,8 +563,8 @@
                                         </div>
                                         <div class="article_media petit_container_video">
                                             <div class="bloc_video_flou">
-                                                <video class="video_media" poster="../sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png">
-                                                    <source src="../sources/Videos/Video2.mp4" type="video/mp4">
+                                                <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
+                                                    <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
                                             </div>                
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
@@ -577,8 +577,8 @@
                                         </div>
                                         <div class="article_media petit_container_video">
                                             <div class="bloc_video_flou">
-                                                <video class="video_media" poster="../sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png">
-                                                    <source src="../sources/Videos/Video2.mp4" type="video/mp4">
+                                                <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
+                                                    <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
                                             </div>                
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
@@ -684,7 +684,7 @@
                                 </div>
                             </div>
                             <div class="container_streaming">
-                                <div class="streaming" style="background-image: url('../sources/images/online-video-chat-by-black-man-in-office_rcshhlwug_thumbnail-full14.png'); background-size: cover; background-position: center;">
+                                <div class="streaming" style="background-image: url('{{asset('sources/images/online-video-chat-by-black-man-in-office_rcshhlwug_thumbnail-full14.png')}}'); background-size: cover; background-position: center;">
 
                                 </div>
                                 <div class="boutons_streaming">
@@ -741,7 +741,7 @@
                         </div>
                     </div>
                     <div class="bloc_photos_user_modal">
-                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy">
+                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy">
                     </div>
                 </div>
             </div>
@@ -755,8 +755,8 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                <video id="player" controls  playsinline data-poster="../sources/images/test.png">
-                    <source src="../sources/Videos/Video.mp4" type="video/mp4">
+                <video id="player" controls  playsinline data-poster="{{asset('sources/images/test.png')}}">
+                    <source src="{{asset('sources/Videos/Video.mp4')}}" type="video/mp4">
                 </video >
             </div>
           </div>
@@ -784,7 +784,7 @@
                     <div class="sous_bloc_form">
                         <div class="container_champs_paiement" id="champs_photo">
                             <div class="bloc_depot">
-                                <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" alt="image_document" class="image_depot lazy">
+                                <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" alt="image_document" class="image_depot lazy">
                                 <input type="file" class="image_upload" />
                             </div>
                         </div>

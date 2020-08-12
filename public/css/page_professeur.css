@@ -1036,6 +1036,11 @@
     background-color: #363837;
 }
 
+.container_navigation .bloc_boutons button:active{
+    color: #363837 !important;
+    background-color: #FFFF !important;
+}
+
 #creer_cours_modal .modal-content{
     background-color: #FFF;
 }

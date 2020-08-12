@@ -293,7 +293,7 @@
                         </div>
                     </div>
                     <div class="bloc_photos_user_modal">
-                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy">
+                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy">
                     </div>
                 </div>
             </div>

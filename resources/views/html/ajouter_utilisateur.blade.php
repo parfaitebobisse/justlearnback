@@ -104,7 +104,7 @@
                                 <div class="sous_bloc_form">
                                     <div class="container_champs_paiement champ_court" id="champs_photo">
                                         <div class="bloc_depot">
-                                            <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" alt="image_document" class="image_depot lazy">
+                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" alt="image_document" class="image_depot lazy">
                                             <input type="file" class="image_upload" />
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                     <div class="bloc_photos_user_modal">
-                        <img data-src="../sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png" class="lazy">
+                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy">
                     </div>
                 </div>
             </div>
