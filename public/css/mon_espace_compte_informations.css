@@ -1,0 +1,84 @@
+.procedure{
+    padding: 10px 30px;
+    border: 1px solid #EEEEEE;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    max-width: 62.15vw;
+    margin-bottom: 19px;
+}
+
+.titre_procedure{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.corps_procedure p{
+    margin: 0;
+    margin-top: 5px;
+}
+
+.titre_sous_compte{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 30px;
+    margin-bottom: 17px;
+}
+
+.bloc_contenu_dashbord{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.sous_bloc_compte{
+    width: 43%;
+    margin-bottom: 29px;
+}
+
+
+#information_base .container_champs_paiement:nth-child(2){
+    margin-top: 0;
+}
+
+.container_radios{
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container_radios .container_confirmation_check{
+    margin-top: -3px;
+    padding-left: 13px;
+}
+
+.container_radios .container_confirmation_check:first-child{
+    margin-right: 19px;
+}
+
+.bloc_validation{
+    margin-top: 6px;
+}
+
+.consigne{
+    padding-right: 30px;
+}
+
+@media(max-width: 728px){
+    .sous_bloc_compte{
+        width: 100%;
+        margin-bottom: 29px;
+    }
+}

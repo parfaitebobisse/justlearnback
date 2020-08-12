@@ -1,0 +1,231 @@
+.lien_retour{
+    color: #55EFC4;
+    margin-right: 16px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.lien_retour i{
+    font-size: 18px;
+    position: relative;
+    top: -2px;
+}
+
+.lien_retour:hover{
+    color: #55EFC4;
+}
+
+.bloc_depot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: dashed 1px #979797;
+    border-radius: 21px;
+    min-height: 222px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    padding: 20px 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.bloc_depot .image_depot{
+    height: 89px;
+    width: 70px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.bloc_depot .paragraphe_depot{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.38px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+#mes_documents{
+    margin-top: 37px;
+}
+
+.progress{
+    border-radius: 8px;
+    background-color: #EEEEEE;
+    height: 15px;
+    width: 70%;
+}
+
+.progress-bar{
+    border-radius: 8px;
+    background-color: #16E260;
+}
+
+.ligne_document{
+    border: none;
+    justify-content: flex-start;
+}
+
+.entete_documents{
+    justify-content: flex-start;
+}
+
+#mes_documents .nom_fichier:nth-child(1), #mes_documents .nom_fichier_corps:nth-child(1){
+    width: 26.5%;
+    padding-left: 19px;
+    padding-right: 19px;
+}
+
+.envoyer_le:nth-child(2), .envoyer_le_corps:nth-child(2){
+    width: 51%;
+}
+
+.envoyer_le_corps{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: end;
+}
+
+.lien_annuler, .lien_recharger{
+    height: 20px;
+    width: 20px;
+    color: #9E9E9E;
+    font-size: 17px;
+}
+
+.lien_annuler:hover, .lien_recharger:hover{
+    color: #9E9E9E;
+}
+
+.lien_annuler{
+    font-size: 21px;
+}
+
+.lien_recharger{
+    position: relative;
+    top: -1px;
+}
+
+.container_boutons_fichiers{
+    margin-left: 32px;
+}
+
+.cacher_bouton{
+    display: none;
+}
+
+.envoyer_le_corps:nth-child(2){
+    align-items: center;
+}
+
+.statu_texte{
+    display: inline-block;
+    width: 70%;
+}
+
+.ligne_document:hover {
+    background-color: #FFFFFF;
+}
+
+.ligne_document:hover > div > span{
+    color: #424242;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: -0.3px;
+    line-height: 25px;
+
+}
+
+.bloc_boutons{
+    margin-top: 32px;
+}
+
+.ligne_document {
+    min-height: 47px;
+    align-items: baseline;
+}
+
+@media(min-width: 1024px) and (max-width: 1262px){
+    #mes_documents .nom_fichier:nth-child(1), #mes_documents .nom_fichier_corps:nth-child(1){
+        width: 40%;
+    }
+}
+
+@media(min-width: 482px) and (max-width: 900px){
+    #mes_documents .nom_fichier:nth-child(1), #mes_documents .nom_fichier_corps:nth-child(1){
+        width: 40%;
+    }
+}
+
+@media(max-width: 482px){
+    .bloc_depot{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 38px 30px;
+    }
+
+    .bloc_depot .paragraphe_depot{
+        margin-top: 38px;
+        text-align: center;
+    }
+
+    #mes_documents .nom_fichier_corps:nth-child(1) {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .envoyer_le:nth-child(2), .envoyer_le_corps:nth-child(2){
+        width: 100%;
+    }
+
+    .progress, .statu_texte{
+        width: 85%;
+    }
+
+    .bloc_boutons{
+        text-align: center;
+    }
+
+    .ligne_document{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .envoyer_le:nth-child(2), .envoyer_le_corps:nth-child(2){
+        margin-top: 5px;
+    }
+
+    #mes_documents{
+        margin-top: 6px;
+    }
+
+    .titre_dashbord{
+        font-size: 26px;
+    }
+}
+
+@media(max-width: 320px){
+    .titre_dashbord{
+        font-size: 23px;
+    }
+}
+
+.image_upload{
+    opacity: 0; 
+    border: none;
+    border-radius: 3px;
+    background: grey;
+    position: absolute;
+    left: 0px;    
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    cursor: pointer;
+}
