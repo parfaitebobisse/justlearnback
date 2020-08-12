@@ -1002,3 +1002,64 @@
    font-weight: 400;
    color: #424242;
 }
+
+/* modification page professeur creer cours */
+
+.navigation_dashbord ul{
+    position: fixed;
+    width: 25vw;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.navigation_dashbord ul::-webkit-scrollbar-thumb{
+    background-image: -webkit-linear-gradient(top,
+    #eccceb 80%,
+    #eccceb 50%,
+    #eccceb 51%,
+    #eccceb 90%);
+}
+
+.container_navigation .bloc_boutons{
+    position: fixed;
+    margin-top: calc(100vh - 200px + 35px);
+    text-align: center;
+    width: 25vw;
+}
+
+.container_navigation .bloc_boutons button{
+    background-color: #424846f8;
+    outline: none !important;
+}
+
+.container_navigation .bloc_boutons button:hover{
+    background-color: #363837;
+}
+
+#creer_cours_modal .modal-content{
+    background-color: #FFF;
+}
+
+#creer_cours_modal .bloc_boutons{
+    margin-top: 25px;
+    text-align: right;
+}
+
+#creer_cours_modal .bloc_depot .image_depot{
+    margin-left: 0;
+    margin-right: 0;
+    width: 70%;
+    height: 200px;
+    object-position: top;
+    object-fit: cover;
+    margin: auto;
+
+}
+
+#creer_cours_modal .custom-select{
+    border: none;
+}
+
+.bloc_boutons i, .container_aside i{
+    margin-right: 10px;
+}
