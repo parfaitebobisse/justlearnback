@@ -57,10 +57,13 @@ class LoginController extends Controller
         $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             if(Auth::user()->type == "super_administrateur"){
-                return redirect()->route('ajouter_utilisateur');
+                return redirect()->route('liste_utilisateurs');
             }elseif (Auth::user()->type == "etudiant") {
                 return redirect()->route('page_etudiant');
-            }else {
+            }elseif (Auth::user()->type == "administrateur") {
+                return redirect()->route('consulter_requete');
+            }
+            else {
                 return redirect()->route('page_professeur');
             }
         }else {

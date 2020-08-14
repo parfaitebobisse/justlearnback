@@ -9,23 +9,11 @@
 @endsection
 
 @section('content')
-    <main>
-        <div class="container_principal_dashbord">
-            <div class="container_navigation">
-                <nav class="navigation_dashbord">
-                    <ul>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord active">Gestion des utilisateurs</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des plateformes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Consultation du bilan</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Archivage</a></li>
-                    </ul>
-                </nav>
-            </div>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
                     
                     <h1 class="titre_dashbord">
-                        <a href="#" class="lien_retour anul_lien">
+                        <a href="{{ route('liste_utilisateurs') }}" class="lien_retour anul_lien">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         </a>
                         Ajouter un utilisateur
@@ -81,10 +69,10 @@
                                     <div class="container_champs_paiement" id="type_etudiant">
                                         <label for="tel" class="label_paiement">Type d'utilisateur</label>
                                         <div class="sous_container_paiement custom-select">
-                                            <select name="doimaine_de_competence" class="champs_text_paiement">
-                                                <option value="droit_immobilier" selected>Etudiant</option>
-                                                <option value="droit_immobilier">Administrateur</option>
-                                                <option value="droit_immobilier">Professeur</option>
+                                            <select name="type_utilisateur" class="champs_text_paiement type_utilisateur">
+                                                <option value="etudiant" selected>Etudiant</option>
+                                                <option value="administrateur">Administrateur</option>
+                                                <option value="professeur">Professeur</option>
                                             </select>
                                         </div>
                                     </div>
@@ -98,6 +86,28 @@
                                                 <input type="radio" id="radio_femme" name="sexe" value="femme">
                                                 <label for="radio_femme">Femme</label>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sous_bloc_form" id="bloc_etudiant_uniquement">
+                                    <div class="container_champs_paiement" id="type_etudiant">
+                                        <label for="tel" class="label_paiement">Plateforme</label>
+                                        <div class="sous_container_paiement custom-select">
+                                            <select name="doimaine_de_competence" class="champs_text_paiement">
+                                                <option value="droit_immobilier" selected>PFTI</option>
+                                                <option value="droit_immobilier">PNT</option>
+                                                <option value="droit_immobilier">OGA</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="container_champs_paiement" id="type_etudiant">
+                                        <label for="tel" class="label_paiement">Classe</label>
+                                        <div class="sous_container_paiement custom-select">
+                                            <select name="doimaine_de_competence" class="champs_text_paiement">
+                                                <option value="droit_immobilier" selected>GL</option>
+                                                <option value="droit_immobilier">ARS</option>
+                                                <option value="droit_immobilier">TIG</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -169,4 +179,18 @@
         </div>
     </footer>
 </body>
+@push('js')
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+        $(".type_utilisateur").on("change", function(){
+            if($(this).children("option:selected").val() == "etudiant") {
+                $("#bloc_etudiant_uniquement").fadeIn();
+            }else{
+                $("#bloc_etudiant_uniquement").fadeOut();
+            }
+        })
+    </script>
+@endpush
 @endsection

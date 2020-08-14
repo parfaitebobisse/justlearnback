@@ -9,23 +9,11 @@
 @endsection
 
 @section('content')
-    <main>
-        <div class="container_principal_dashbord">
-            <div class="container_navigation">
-                <nav class="navigation_dashbord">
-                    <ul>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord active">Gestion des utilisateurs</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des plateformes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Consultation du bilan</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Archivage</a></li>
-                    </ul>
-                </nav>
-            </div>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
                     
                     <h1 class="titre_dashbord">
-                        <a href="#" class="lien_retour anul_lien">
+                        <a href="{{ route('liste_plateformes') }}" class="lien_retour anul_lien">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         </a>
                         Ajouter une plateforme

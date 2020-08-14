@@ -32,13 +32,13 @@
     
             <ul class="list-unstyled components" id="liste_menu_respo_dash">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="lien_navigation_dashbord active">Gestion des utilisateurs</a>
+                    <a href="{{ route('liste_utilisateurs') }}" data-toggle="collapse" aria-expanded="false" class="lien_navigation_dashbord active">Gestion des utilisateurs</a>
                 </li>
                 <li>
-                    <a href="#" class="lien_navigation_dashbord">Gestion des plateformes</a>
+                    <a href="{{ route('ajouter_plateforme') }}" class="lien_navigation_dashbord">Gestion des plateformes</a>
                 </li>
                 <li>
-                    <a href="#" class="lien_navigation_dashbord">Consultation du bilan</a>
+                    <a href="{{ route('consulter_bilan') }}" class="lien_navigation_dashbord">Consultation du bilan</a>
                 </li>
                 <li>
                     <a href="#" class="lien_navigation_dashbord">Archivage</a>
@@ -74,8 +74,9 @@
                             <i class="fas fa-user"></i>
                             Mon profil
                         </a>
-                        <a href="{{ route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        <a class="dropdown-item" href="{{ route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt"></i>
+                            Deconnexion
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -88,6 +89,157 @@
             </button>
         </div>
     </header>
+    <main>
+        <div class="container_principal_dashbord">
+            <div class="container_navigation">
+                <nav class="navigation_dashbord">
+                    @if ($user_role == "etudiant")
+                        <ul>
+                            <li>
+                                <a href="#" class="anul_lien lien_navigation_dashbord active">
+                                    <div class="container_cours">
+                                        <div class="container_photo_cours">
+                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        </div>
+                                        <div class="container_texte">
+                                            <span class="titre_cours">GL3 - RSE</span>
+                                            <span>Sceance dans 
+                                                <span class="statu_cours">en cours...</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="anul_lien lien_navigation_dashbord">
+                                    <div class="container_cours">
+                                        <div class="container_photo_cours">
+                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        </div>
+                                        <div class="container_texte">
+                                            <span class="titre_cours">GL3 - RSE</span>
+                                            <span>Sceance dans 
+                                                <span class="statu_cours">en cours...</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="anul_lien lien_navigation_dashbord">
+                                    <div class="container_cours">
+                                        <div class="container_photo_cours">
+                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        </div>
+                                        <div class="container_texte">
+                                            <span class="titre_cours">GL3 - RSE</span>
+                                            <span>Sceance dans 
+                                                <span class="statu_cours">en cours...</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="anul_lien lien_navigation_dashbord">
+                                    <div class="container_cours">
+                                        <div class="container_photo_cours">
+                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        </div>
+                                        <div class="container_texte">
+                                            <span class="titre_cours">GL3 - RSE</span>
+                                            <span>Sceance dans 
+                                                <span class="statu_cours">en cours...</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    @elseif($user_role == "super_administrateur")
+                        <ul>
+                            <li><a href="{{ route('liste_utilisateurs') }}" class="anul_lien lien_navigation_dashbord {{ $page == "gestion_utilisateur" ? 'active':'' }}">Gestion des utilisateurs</a></li>
+                            <li><a href="{{ route('liste_plateformes') }}" class="anul_lien lien_navigation_dashbord lien_navigation_dashbord {{ $page == "gestion_plateforme" ? 'active':'' }}">Gestion des plateformes</a></li>
+                            <li><a href="{{ route('consulter_bilan') }}" class="anul_lien lien_navigation_dashbord {{ $page == "consulter_bilan" ? 'active':'' }}">Consultation du bilan</a></li>
+                            <li><a href="#" class="anul_lien lien_navigation_dashbord">Archivage</a></li>
+                        </ul>
+                    @elseif($user_role == "administrateur")
+                        <ul>
+                            <li><a href="{{ route('emploie_temps_admin') }}" class="anul_lien lien_navigation_dashbord {{ $page == "emploi_temps" ? 'active':'' }}">Gestion des emplois de temps</a></li>
+                            <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion de notifications</a></li>
+                            <li><a href="{{ route('consulter_note_admin') }}" class="anul_lien lien_navigation_dashbord {{ $page == "consulter_note" ? 'active':'' }}">Consultation de notes</a></li>
+                            <li><a href="{{ route('consulter_requete') }}" class="anul_lien lien_navigation_dashbord {{ $page == "consultation_requete" ? 'active':'' }}">Consultation de requetes</a></li>
+                            <li><a href="{{ route('consulter_bilan') }}" class="anul_lien lien_navigation_dashbord {{ $page == "consulter_bilan" ? 'active':'' }}">Consultation du bilan</a></li>
+                        </ul>
+                    @else
+                    <ul>
+                        <li>
+                            <a href="#" class="anul_lien lien_navigation_dashbord active">
+                                <div class="container_cours">
+                                    <div class="container_photo_cours">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                    </div>
+                                    <div class="container_texte">
+                                        <span class="titre_cours">GL3 - RSE</span>
+                                        <span>Sceance dans 
+                                            <span class="statu_cours">en cours...</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="anul_lien lien_navigation_dashbord">
+                                <div class="container_cours">
+                                    <div class="container_photo_cours">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                    </div>
+                                    <div class="container_texte">
+                                        <span class="titre_cours">GL3 - RSE</span>
+                                        <span>Sceance dans 
+                                            <span class="statu_cours">en cours...</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="anul_lien lien_navigation_dashbord">
+                                <div class="container_cours">
+                                    <div class="container_photo_cours">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                    </div>
+                                    <div class="container_texte">
+                                        <span class="titre_cours">GL3 - RSE</span>
+                                        <span>Sceance dans 
+                                            <span class="statu_cours">en cours...</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="anul_lien lien_navigation_dashbord">
+                                <div class="container_cours">
+                                    <div class="container_photo_cours">
+                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                    </div>
+                                    <div class="container_texte">
+                                        <span class="titre_cours">GL3 - RSE</span>
+                                        <span>Sceance dans 
+                                            <span class="statu_cours">en cours...</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="bloc_boutons">
+                        <button type="submit" id="creer_un_cours" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard"></i>Créer un cours</button>
+                    </div>
+                    @endif
+                </nav>
+            </div>
     @yield('content')
 
     @stack('modals')

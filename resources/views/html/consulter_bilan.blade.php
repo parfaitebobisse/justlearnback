@@ -9,18 +9,6 @@
 @endsection
 
 @section('content')
-    <main>
-        <div class="container_principal_dashbord">
-            <div class="container_navigation">
-                <nav class="navigation_dashbord">
-                    <ul>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des utilisateurs</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des plateformes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord active">Consultation du bilan</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Archivage</a></li>
-                    </ul>
-                </nav>
-            </div>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
                     <h1 class="titre_dashbord">Consultation du bilan</h1>

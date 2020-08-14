@@ -9,23 +9,11 @@
 @endsection
 
 @section('content')
-    <main>
-        <div class="container_principal_dashbord">
-            <div class="container_navigation">
-                <nav class="navigation_dashbord">
-                    <ul>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord active">Gestion des utilisateurs</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des plateformes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Consultation du bilan</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Archivage</a></li>
-                    </ul>
-                </nav>
-            </div>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
                     <h1 class="titre_dashbord">Gestion des utilisateurs</h1>
                     <div class="bloc_boutons">
-                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Ajouter un utilisateur</button>
+                        <a href="{{ route('ajouter_utilisateur') }}" type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Ajouter un utilisateur</a>
                     </div>
                 </div>
                 <div class="bloc_contenu_dashbord">

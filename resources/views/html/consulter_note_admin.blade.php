@@ -1,7 +1,7 @@
 @extends('html.header')
 
 @push('css')
-    <link rel="stylesheet" href="{{asset('css/emploie_temps_admin.css')}}">
+    <link rel="stylesheet" href="{{asset('css/consulter_notes_admin.css')}}">
 @endpush
 
 @section('title')
@@ -9,20 +9,6 @@
 @endsection
 
 @section('content')
-    <main>
-        <div class="container_principal_dashbord">
-            <div class="container_navigation">
-                <nav class="navigation_dashbord">
-                    <ul>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des emplois de temps</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Gestion des plateformes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord ">Gestion de notifications</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord active">Consultation de notes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Consultation de requetes</a></li>
-                        <li><a href="#" class="anul_lien lien_navigation_dashbord">Consultation du bilan</a></li>
-                    </ul>
-                </nav>
-            </div>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
                     <h1 class="titre_dashbord">Consultation de notes</h1>
