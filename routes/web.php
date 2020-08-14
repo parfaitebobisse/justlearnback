@@ -13,7 +13,7 @@
 
 Route::get('/','HomeController@loginIndex');
 
-Route::get('/ajouter_utilisateur','RouteController@goTo_ajouter_utilisateur');
+Route::get('/ajouter_utilisateur','RouteController@goTo_ajouter_utilisateur')->name('ajouter_utilisateur');
 
 Route::get('/liste_utilisateurs','RouteController@goTo_liste_utilisateurs');
 Route::get('/ajouter_plateforme','RouteController@goTo_ajouter_plateforme');
@@ -25,9 +25,9 @@ Route::get('/consulter_requete','RouteController@goTo_consulter_requete');
 Route::get('/consulter_note_admin','RouteController@goTo_consulter_note_admin');
 Route::get('/emploie_temps_admin','RouteController@goTo_emploie_temps_admin');
 
-Route::get('/page_etudiant','RouteController@goTo_page_etudiant');
+Route::get('/page_etudiant','RouteController@goTo_page_etudiant')->name('page_etudiant');
 
-Route::get('/page_professeur','RouteController@goTo_page_professeur');
+Route::get('/page_professeur','RouteController@goTo_page_professeur')->name('page_professeur');
 
 
 

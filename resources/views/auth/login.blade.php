@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+x<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,19 +37,13 @@
                             @csrf
                                 <input id="email" type="email" class="fadeIn second @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Nom d'utilisateur">
 
-                                @error('email')
-                                    <span class="message_rouge" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
                                 <input id="password" type="password" class="fadeIn third @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Mot de passe">
 
-                                @error('password')
+                                @if (session('status'))
                                     <span class="message_rouge" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ session('status') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                         </div>
 
                         {{-- <div class="form-group row">
