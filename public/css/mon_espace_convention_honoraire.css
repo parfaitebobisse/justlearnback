@@ -1,0 +1,159 @@
+.procedure{
+    padding: 10px 30px;
+    border: 1px solid #EEEEEE;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    max-width: 62.15vw;
+    margin-bottom: 19px;
+}
+
+.titre_procedure{
+    opacity: 0.9;
+    color: #061730;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.corps_procedure p{
+    margin: 0;
+    margin-top: 5px;
+}
+
+/* reponsive procédures */
+
+@media (max-width: 1024px){
+    .procedure{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 320px){
+    .titre_procedure{
+        font-size: 15px;
+    }
+    .bloc_contenu_dashbord{
+        font-size: 14px;
+    }
+}
+
+.liste_type_2 a{
+    border-bottom: solid 1px #55EFC4;
+    background-color: rgba(85,239,196,0.2);
+    color: #05386B;
+}
+
+.liste_type_2 li a{
+    border-bottom: solid 1px #55EFC4;
+    background-color: rgba(85,239,196,0.2);
+}
+
+@media (max-width: 780px){
+    .entete_corps_dashbord{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .bloc_boutons{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px){
+    #envoyer_document{
+        font-size: 14px;
+    }
+
+    .liste_type_2 li:nth-child(1){
+        width: 40%;
+    }
+    .liste_type_2 li:nth-child(2){
+        width: 60%;
+    }
+}
+
+.nom_fichier:nth-child(1), .nom_fichier_corps:nth-child(1){
+    width: 65%;
+    padding-left: 19px;
+    padding-right: 19px;
+}
+
+.envoyer_le:nth-child(2), .envoyer_le_corps:nth-child(2){
+    width: 23%;
+}
+
+.action:nth-child(3), .action_corps:nth-child(3){
+    text-align: center;
+    width: 12%;
+}
+
+.container_boutons_tableau{
+    justify-content: flex-end;
+}
+
+.bouton_tableau{
+    margin-right: 28px;
+}
+
+.action{
+    padding-right: 20px;
+}
+
+
+@media(max-width: 740px){
+    .nom_fichier:nth-child(1), .nom_fichier_corps:nth-child(1){
+        width: 60%;
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+    
+    .envoyer_le:nth-child(2), .envoyer_le_corps:nth-child(2){
+        width: 20%;
+    }
+    
+    .action:nth-child(3), .action_corps:nth-child(3){
+        text-align: center;
+        width: 20%;
+    }
+
+    .bouton_tableau{
+        margin-right: 20px;
+    }
+    
+    .action{
+        padding-right: 0px;
+    }
+}
+
+
+@media (max-width: 480px){
+
+    .nom_fichier:nth-child(1), .nom_fichier_corps:nth-child(1){
+        width: calc(100% - 45px);
+        padding: 0;
+    }
+
+    .action:nth-child(3), .action_corps:nth-child(3){
+        position: absolute;
+        top: 23px;
+        right: 15px;
+        width: fit-content;
+    }
+
+    .envoyer_le:nth-child(2), .envoyer_le_corps:nth-child(2){
+        width: calc(100% - 45px);
+        margin-top: 10px;
+    }
+
+    .corps_documents{
+        margin-top: 0px;
+    }
+
+    .bloc_contenu_dashbord{
+        margin-top: 10px;
+    }
+}
