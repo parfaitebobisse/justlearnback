@@ -9,6 +9,16 @@
 @endsection
 
 @section('content')
+<style>
+    .container_choix {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding-left: 80px;
+        float: right;
+        margin-top: 30px;
+    }
+</style>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
                     <h1 class="titre_dashbord">{{ $cour->classe->denomination }} - {{ $cour->classe->niveau }}</h1>
@@ -156,6 +166,7 @@
 
                                 <div id="procedure2" class="tab-pane fade">
                                     <div class="container_evaluations">
+                                        @foreach ($evaluations as $evaluation)
                                         <div class="sujet_evaluation">
                                             <div class="partie_gauche">
                                                 <div class="container_confirmation_check container_radio">
@@ -165,149 +176,86 @@
                                                 <div class="clipboard">
                                                     <i class="fas fa-clipboard"></i>
                                                 </div>
-                                                <h3 class="nom_sujet">CC N° 2</h3>
+                                                <h3 class="nom_sujet">{{ $evaluation->intitule }}</h3>
                                             </div>
                                             <div class="partie_droite">
-                                                <form method="" action="">
+                                                <form method="" action="{{route('addTime')}}" id="test_{{ $evaluation->id }}">
+                                                    @csrf
                                                     <div class="container_heure">
-                                                        <input type="number" class="form-control" placeholder="1" name="heure">
+                                                        <input type="number" class="form-control" placeholder="1" name="heure" id="heure" value="{{ $evaluation->heure }}">
                                                         <span>H</span>
                                                     </div>
                                                     <div class="container_minutes">
-                                                        <input type="number" class="form-control" placeholder="00" name="minutes">
+                                                        <input type="number" class="form-control" placeholder="00" name="minutes" id="minute" value="{{ $evaluation->minutes }}">
                                                         <span>Min</span>
                                                     </div>
                                                     <div class="container_actions_sujet">
                                                         <button type="button" id="soumettre" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button">Soumettre</button>
                                                         <a href="#" class="telecharge"><i class="fas fa-download"></i></a>
-                                                        <a href="#" class="telecharge"><i class="fas fa-trash-alt"></i></a>
+                                                        <a href="{{route('deleteEva',['id' => $evaluation->id])}}" class="telecharge"><i class="fas fa-trash-alt"></i></a>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="sujet_evaluation">
-                                            <div class="partie_gauche">
-                                                <div class="container_confirmation_check container_radio">
-                                                    <input type="radio" id="radio_homme" name="sexe" value="homme">
-                                                    <label for="radio_homme"></label>
-                                                </div>
-                                                <div class="clipboard">
-                                                    <i class="fas fa-clipboard"></i>
-                                                </div>
-                                                <h3 class="nom_sujet">CC N° 2</h3>
-                                            </div>
-                                            <div class="partie_droite">
-                                                <form method="" action="">
-                                                    <div class="container_heure">
-                                                        <input type="number" class="form-control" placeholder="1" name="heure">
-                                                        <span>H</span>
-                                                    </div>
-                                                    <div class="container_minutes">
-                                                        <input type="number" class="form-control" placeholder="00" name="minutes">
-                                                        <span>Min</span>
-                                                    </div>
-                                                    <div class="container_actions_sujet">
-                                                        <button type="button" id="soumettre" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button">Soumettre</button>
-                                                        <a href="#" class="telecharge"><i class="fas fa-download"></i></a>
-                                                        <a href="#" class="telecharge"><i class="fas fa-trash-alt"></i></a>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="sujet_evaluation">
-                                            <div class="partie_gauche">
-                                                <div class="container_confirmation_check container_radio">
-                                                    <input type="radio" id="radio_homme" name="sexe" value="homme">
-                                                    <label for="radio_homme"></label>
-                                                </div>
-                                                <div class="clipboard">
-                                                    <i class="fas fa-clipboard"></i>
-                                                </div>
-                                                <h3 class="nom_sujet">CC N° 2</h3>
-                                            </div>
-                                            <div class="partie_droite">
-                                                <form method="" action="">
-                                                    <div class="container_heure">
-                                                        <input type="number" class="form-control" placeholder="1" name="heure">
-                                                        <span>H</span>
-                                                    </div>
-                                                    <div class="container_minutes">
-                                                        <input type="number" class="form-control" placeholder="00" name="minutes">
-                                                        <span>Min</span>
-                                                    </div>
-                                                    <div class="container_actions_sujet">
-                                                        <button type="button" id="soumettre" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button">Soumettre</button>
-                                                        <a href="#" class="telecharge"><i class="fas fa-download"></i></a>
-                                                        <a href="#" class="telecharge"><i class="fas fa-trash-alt"></i></a>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="sujet_evaluation">
-                                            <div class="partie_gauche">
-                                                <div class="container_confirmation_check container_radio">
-                                                    <input type="radio" id="radio_homme" name="sexe" value="homme">
-                                                    <label for="radio_homme"></label>
-                                                </div>
-                                                <div class="clipboard">
-                                                    <i class="fas fa-clipboard"></i>
-                                                </div>
-                                                <h3 class="nom_sujet">CC N° 2</h3>
-                                            </div>
-                                            <div class="partie_droite">
-                                                <form method="" action="">
-                                                    <div class="container_heure">
-                                                        <input type="number" class="form-control" placeholder="1" name="heure">
-                                                        <span>H</span>
-                                                    </div>
-                                                    <div class="container_minutes">
-                                                        <input type="number" class="form-control" placeholder="00" name="minutes">
-                                                        <span>Min</span>
-                                                    </div>
-                                                    <div class="container_actions_sujet">
-                                                        <button type="button" id="soumettre" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button">Soumettre</button>
-                                                        <a href="#" class="telecharge"><i class="fas fa-download"></i></a>
-                                                        <a href="#" class="telecharge"><i class="fas fa-trash-alt"></i></a>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                         <div class="bloc_boutons_bottom">
-                                            <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien" disabled>Ajouter une evaluation</button>
+                                            <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien addEva">Ajouter une evaluation</button>
                                         </div>
                                     </div>
-                                    <div class="ajout_evalutation">
-                                        <div class="titre_sujet">
-                                            <input type="text" class="form-control" id="champs_message" placeholder="Saisir l'intitulé de l'epreuve" aria-label="Recherche" aria-describedby="basic-addon2">
-                                        </div>
-                                        <div class="question">
-                                            <div class="libelle_question">
-                                                <span class="num_question">1 .</span>
-                                                <input type="text" class="form-control" id="libelle_question" placeholder="Saisir une question" aria-label="Recherche" aria-describedby="basic-addon2">
+                                    <div class="ajout_evalutation" style="display: none;">
+                                        <form action="{{route('addEva')}}" id="evaluationCreate">
+                                            @csrf
+                                            <div class="titre_sujet">
+                                                <input type="text" class="form-control" id="champs_message" placeholder="Saisir l'intitulé de l'epreuve" aria-label="Recherche" name="intitule" aria-describedby="basic-addon2">
+                                                <input type="hidden" name="cours" value="{{ $test }}">
                                             </div>
-                                            <div class="contaier_tout_choix">
-                                                <div class="container_choix">
-                                                    <div class="choix" id="choix1">
-                                                        <div class="container_confirmation_check container_radio">
-                                                            <input type="radio" id="radio_homme" name="sexe" value="homme">
-                                                            <label for="radio_homme"></label>
+                                            <div class="question">
+                                                <div class="libelle_question">
+                                                    <span class="num_question">1 .</span>
+                                                    <input type="text" class="form-control" id="libelle_question" placeholder="Saisir une question" aria-label="Recherche" name="question[]" aria-describedby="basic-addon2">
+                                                </div>
+                                                <div class="bloc_question">
+                                                    <div class="contaier_tout_choix">
+                                                        <div class="container_choix">
+                                                            <div class="choix" id="choix1">
+                                                                <input type="text" class="form-control" id="libelle_choix" placeholder="Saisissez la bonne réponse" name="reponses[]" aria-label="Recherche" aria-describedby="basic-addon2">
+                                                            </div>
                                                         </div>
-                                                        <input type="text" class="form-control" id="libelle_choix" placeholder="saisir une réponse" aria-label="Recherche" aria-describedby="basic-addon2">
                                                     </div>
-                                                </div>
-                                                <div class="container_new_choix">
-                                                    <div class="bloc_boutons">
-                                                        <button type="button" id="add_question" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-plus"></i></button>
-                                                        <button type="button" id="add_question" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-times"></i></button>
+                                                    <div class="contaier_tout_choix">
+                                                        <div class="container_choix">
+                                                            <div class="choix" id="choix1">
+                                                                <input type="text" class="form-control" id="libelle_choix" placeholder="Saisissez une proposition" name="reponses[]" aria-label="Recherche" aria-describedby="basic-addon2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="contaier_tout_choix">
+                                                        <div class="container_choix">
+                                                            <div class="choix" id="choix1">
+                                                                <input type="text" class="form-control" id="libelle_choix" placeholder="Saisissez une proposition" name="reponses[]" aria-label="Recherche" aria-describedby="basic-addon2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="contaier_tout_choix">
+                                                        <div class="container_choix">
+                                                            <div class="choix" id="choix1">
+                                                                <input type="text" class="form-control" id="libelle_choix" placeholder="Saisissez une proposition" name="reponses[]" aria-label="Recherche" aria-describedby="basic-addon2">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="container_new">
-                                            <div class="bloc_boutons">
-                                                <button type="button" id="add_question" class="button_goldwin button_type_1 anul_lien">nouvelle question</button>
+                                            <div class="container_new">
+                                                <div class="bloc_boutons">
+                                                    <button type="button" id="add_question" class="button_goldwin button_type_1 anul_lien"><i class="fa fa-plus"></i> Nouvelle question</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                            <div class="container_new">
+                                                <div class="bloc_boutons" style="justify-content: center;display: flex;">
+                                                    <button type="submit" id="submitEva" class="button_goldwin button_type_1 anul_lien">Enregistrer</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -711,6 +659,8 @@
     </div>
 </body>
 @push('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{{asset('js/evaluation.js')}}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.

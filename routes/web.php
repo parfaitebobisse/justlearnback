@@ -38,6 +38,10 @@ Route::group(['prefix' => '/','middleware'=>'auth'], function () {
     Route::get('/page_professeur','RouteController@goTo_page_professeur')->name('page_professeur');
     Route::get('/cours/details/{id}','CoursController@detailCours')->name('cours.details');
 
+    Route::post('/evaluation/store','EvaluationController@store')->name('addEva');
+    Route::post('/evaluation/addTime','EvaluationController@addTime')->name('addTime');
+    Route::get('/evaluation/delete/{id}','EvaluationController@delete')->name('deleteEva');
+
     Route::post('/messages/{espace}/store','MessageController@store')->name('messages.store');
     Route::get('/messages/{id}/get/xhr','MessageController@getMessagesXhr')->name('messages.get.xhr');
 

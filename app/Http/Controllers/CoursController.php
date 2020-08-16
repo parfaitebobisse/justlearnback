@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classe;
 use App\Cours;
 use App\Espace_echange;
+use App\Evaluation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -40,7 +41,9 @@ class CoursController extends Controller{
     public function detailCours($id, Request $request){
         $user_role = Auth::user()->type;
         $classes = Classe::all();
+        $evaluations = Evaluation::all();
         $cour = Cours::findOrFail($id);
+        $test = $id;
         if(auth()->user()->type=="etudiant"){
             $users_online = $cour
                     ->classe
@@ -74,7 +77,7 @@ class CoursController extends Controller{
             $diffusion->type="diffusion";
             $diffusion->save();
         }
-        return view('html.page_professeur_details',compact('cour','user_role','users_online','classes','forum','diffusion'));
+        return view('html.page_professeur_details',compact('cour','test','user_role','users_online','classes','forum','diffusion','evaluations'));
     }
 
 }

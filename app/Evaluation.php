@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluation extends Model
 {
     //
+    protected $fillable = [
+        'id', 'intitule', 'heure', 'minutes', 'questions', 'reponses', 'classe'
+    ];
 
     public function sujet()
     {

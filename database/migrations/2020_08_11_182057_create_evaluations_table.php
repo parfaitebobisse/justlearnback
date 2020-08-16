@@ -15,6 +15,12 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('intitule');
+            $table->string('classe')->nullable();
+            $table->string('heure')->nullable();
+            $table->string('minutes')->nullable();
+            $table->text('questions');
+            $table->text('reponses');
             $table->timestamps();
         });
     }
