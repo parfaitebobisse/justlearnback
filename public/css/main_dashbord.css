@@ -1776,3 +1776,13 @@ select{
     margin-top: 25px;
     text-align: right;
 }
+
+/* nouvelle modification */
+
+.navigation_dashbord ul::-webkit-scrollbar-thumb{
+    background-image: -webkit-linear-gradient(top,
+    #eccceb 80%,
+    #eccceb 50%,
+    #eccceb 51%,
+    #eccceb 90%);
+}

@@ -36,8 +36,10 @@
 }
 
 .bloc_depot .image_depot{
-    height: 89px;
-    width: 70px;
+    width: 80%;
+    height: 219px;
+    object-fit: cover;
+    object-position: top;
     margin-right: 25px;
     margin-left: 25px;
 }
