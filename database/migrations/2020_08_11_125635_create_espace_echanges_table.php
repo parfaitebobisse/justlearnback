@@ -15,7 +15,8 @@ class CreateEspaceEchangesTable extends Migration
     {
         Schema::create('espace_echanges', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->unsignedBigInteger('cour_id');
+            $table->foreign('cour_id')->references('id')->on('cours')->onDelete('cascade');
             /* type forum ou diffusion */
             $table->string('type');
             $table->timestamps();

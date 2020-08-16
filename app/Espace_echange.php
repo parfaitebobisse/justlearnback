@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Espace_echange extends Model
 {
     //
-
-    public function message()
+    public function messages()
     {
         return $this->hasMany('App\Message');
     }

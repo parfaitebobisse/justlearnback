@@ -6,7 +6,7 @@
 @endpush
 
 @section('title')
-    ebobisse epoune parfait
+    {{ auth()->user()->nom }} {{ auth()->user()->prenom }}
 @endsection
 
 @section('content')
@@ -319,7 +319,7 @@
                                                     </div>
                                                     <div class="container_actions_sujet">
                                                         <button type="button" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button voir_copie">Voir</button>
-                                                        <a href="#" class="telecharge"><i class="fas fa-download"></i></a>  
+                                                        <a href="#" class="telecharge"><i class="fas fa-download"></i></a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -354,7 +354,7 @@
                                                 <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
                                                     <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
-                                            </div>                
+                                            </div>
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
                                             <div class="description_video">
                                                 <span>17/08/2020</span>
@@ -368,7 +368,7 @@
                                                 <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
                                                     <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
-                                            </div>                
+                                            </div>
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
                                             <div class="description_video">
                                                 <span>17/08/2020</span>
@@ -382,7 +382,7 @@
                                                 <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
                                                     <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
-                                            </div>                
+                                            </div>
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
                                             <div class="description_video">
                                                 <span>17/08/2020</span>
@@ -396,7 +396,7 @@
                                                 <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
                                                     <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
-                                            </div>                
+                                            </div>
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
                                             <div class="description_video">
                                                 <span>17/08/2020</span>
@@ -410,7 +410,7 @@
                                                 <video class="video_media" poster="{{asset('sources/images/8fca33e29f109b5d97943cd46e444b851058ec34.png')}}">
                                                     <source src="{{asset('sources/Videos/Video2.mp4')}}" type="video/mp4">
                                                 </video>
-                                            </div>                
+                                            </div>
                                             <h2 class="paragraphe_type_4">Machin learning</h2>
                                             <div class="description_video">
                                                 <span>17/08/2020</span>
@@ -782,10 +782,10 @@
 </body>
 @push('js')
 <script>
-    document.addEventListener('DOMContentLoaded', () => { 
+    document.addEventListener('DOMContentLoaded', () => {
         // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
         const player = new Plyr('#player');
-        
+
         // Expose
   window.player = player;
 
@@ -798,14 +798,14 @@
     $(".video_media").click(
         function open_video()
         {
-            
+
             $('#modal_video').modal('show');
         }
     );
     $(".voir_copie").click(
         function open_video()
         {
-            
+
             $('#copie_etudiant').modal('show');
         }
     );

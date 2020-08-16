@@ -19,17 +19,17 @@
     <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
-    
+
             <div id="dismiss">
                 <i class="fas fa-arrow-left"></i>
             </div>
-    
+
             <div class="sidebar-header">
                 <a href="#" class="anul_lien" id="bloc_logo">
                     <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="photo_profil_respo" alt="icone cadena">
                 </a>
             </div>
-    
+
             <ul class="list-unstyled components" id="liste_menu_respo_dash">
                 <li class="active">
                     <a href="{{ route('liste_utilisateurs') }}" data-toggle="collapse" aria-expanded="false" class="lien_navigation_dashbord active">Gestion des utilisateurs</a>
@@ -50,7 +50,7 @@
                 <a href="#"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
             </div>
         </nav>
-    
+
         <!-- Page Content -->
 
         <!-- Dark Overlay element -->
@@ -63,7 +63,7 @@
             </a>
             <div class="dropdown">
                 <div id="bloc_espace_404">
-                    <span class="anul_lien" id="lien_espace">Ebobisse Epoune Parfait</span>
+                    <span class="anul_lien" id="lien_espace">{{ auth()->user()->nom }} {{ auth()->user()->prenom }}</span>
                     <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="photo_profil" alt="icone cadena">
                     <div class="dropdown-menu animate slideIn" aria-labelledby="photo_profil" id="dropdown_header">
                         <a class="dropdown-item" href="#">
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="container_texte">
                                             <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans 
+                                            <span>Sceance dans
                                                 <span class="statu_cours">en cours...</span>
                                             </span>
                                         </div>
@@ -118,7 +118,7 @@
                                         </div>
                                         <div class="container_texte">
                                             <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans 
+                                            <span>Sceance dans
                                                 <span class="statu_cours">en cours...</span>
                                             </span>
                                         </div>
@@ -133,7 +133,7 @@
                                         </div>
                                         <div class="container_texte">
                                             <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans 
+                                            <span>Sceance dans
                                                 <span class="statu_cours">en cours...</span>
                                             </span>
                                         </div>
@@ -148,7 +148,7 @@
                                         </div>
                                         <div class="container_texte">
                                             <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans 
+                                            <span>Sceance dans
                                                 <span class="statu_cours">en cours...</span>
                                             </span>
                                         </div>
@@ -173,66 +173,26 @@
                         </ul>
                     @else
                     <ul>
+                        @php
+                            $cours_enseignants = \App\Cours::where('user_id',auth()->user()->id)->get();
+                        @endphp
+                        @foreach ($cours_enseignants as $cours_enseignant)
                         <li>
-                            <a href="#" class="anul_lien lien_navigation_dashbord active">
+                            <a href="{{ route('cours.details',$cours_enseignant) }}" class="anul_lien lien_navigation_dashbord active">
                                 <div class="container_cours">
                                     <div class="container_photo_cours">
-                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        <img data-src="{{asset('uploads/images/cours/'.$cours_enseignant->photo)}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
                                     </div>
                                     <div class="container_texte">
-                                        <span class="titre_cours">GL3 - RSE</span>
-                                        <span>Sceance dans 
+                                        <span class="titre_cours">{{ $cours_enseignant->denomination }} - {{ $cours_enseignant->niveau }}</span>
+                                        <span>Sceance dans
                                             <span class="statu_cours">en cours...</span>
                                         </span>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="anul_lien lien_navigation_dashbord">
-                                <div class="container_cours">
-                                    <div class="container_photo_cours">
-                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                    </div>
-                                    <div class="container_texte">
-                                        <span class="titre_cours">GL3 - RSE</span>
-                                        <span>Sceance dans 
-                                            <span class="statu_cours">en cours...</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="anul_lien lien_navigation_dashbord">
-                                <div class="container_cours">
-                                    <div class="container_photo_cours">
-                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                    </div>
-                                    <div class="container_texte">
-                                        <span class="titre_cours">GL3 - RSE</span>
-                                        <span>Sceance dans 
-                                            <span class="statu_cours">en cours...</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="anul_lien lien_navigation_dashbord">
-                                <div class="container_cours">
-                                    <div class="container_photo_cours">
-                                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                    </div>
-                                    <div class="container_texte">
-                                        <span class="titre_cours">GL3 - RSE</span>
-                                        <span>Sceance dans 
-                                            <span class="statu_cours">en cours...</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                     <div class="bloc_boutons">
                         <button type="submit" id="creer_un_cours" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard"></i>Créer un cours</button>
@@ -245,7 +205,7 @@
     @stack('modals')
 
 <script src="{{asset('js/jquery.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://cdn.plyr.io/3.4.6/plyr.js"></script>
@@ -259,7 +219,7 @@
             // $('.skip').click(function() {
             //     $('.overlay, body').addClass('loaded');
             // })
-            
+
             // Will wait for everything on the page to load.
             $(window).bind('load', function() {
                 $('.overlay, body').addClass('loaded');
@@ -269,7 +229,7 @@
 
                 $('#rgpdModal').modal('show');
             });
-            
+
             // Will remove overlay after 1min for users cannnot load properly.
             setTimeout(function() {
                 $('.overlay, body').addClass('loaded');

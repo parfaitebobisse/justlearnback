@@ -1,6 +1,10 @@
 <?php
 
+use App\Cours;
+use App\Classe;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class SuperAdminTableSeeder extends Seeder
 {
@@ -11,6 +15,20 @@ class SuperAdminTableSeeder extends Seeder
      */
     public function run()
     {
+
+        Classe::create([
+            "denomination"=>"GL",
+            "niveau"=>1
+        ]);
+        Classe::create([
+            "denomination"=>"GL",
+            "niveau"=>2
+        ]);
+        Classe::create([
+            "denomination"=>"GL",
+            "niveau"=>2
+        ]);
+
         //
         DB::table('users')->insert([
             'type' => 'super_administrateur',
@@ -35,9 +53,10 @@ class SuperAdminTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'classe_id'=>1,
             'type' => 'professeur',
-            'nom' => 'nom_professeur',
-            'prenom' => 'prenom_professeur',
+            'nom' => 'Claude',
+            'prenom' => 'Bock',
             'email' => 'professeur@gmail.com',
             'telephone' => '699999999',
             'sexe' => '0',
@@ -47,13 +66,26 @@ class SuperAdminTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'type' => 'etudiant',
-            'nom' => 'nom_etudiant',
-            'prenom' => 'prenom_etudiant',
+            'nom' => 'Ebobisse',
+            'prenom' => 'Parfait',
             'email' => 'etudiant@gmail.com',
             'telephone' => '655555555',
             'sexe' => '0',
             'photo' => '/sources/images/superadmin.jpg',
             'password' => Hash::make('etudiant'),
+        ]);
+
+        Cours::create([
+            "user_id"=>3,
+            "classe_id"=>1,
+            "denomination"=>"Machine Learning",
+            "photo"=>"5f386da6c8911.jpg",
+        ]);
+        Cours::create([
+            "user_id"=>3,
+            "classe_id"=>1,
+            "denomination"=>"Programmation Web Avancée",
+            "photo"=>"5f3872f5c7503.png",
         ]);
     }
 }

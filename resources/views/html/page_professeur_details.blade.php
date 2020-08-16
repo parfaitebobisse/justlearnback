@@ -5,13 +5,13 @@
 @endpush
 
 @section('title')
-    {{ auth()->user()->nom }} {{ auth()->user()->prenom }}
+    {{ $cour->classe->denomination }} - {{ $cour->classe->niveau }}
 @endsection
 
 @section('content')
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
-                    <h1 class="titre_dashbord">GL3 - RSE</h1>
+                    <h1 class="titre_dashbord">{{ $cour->classe->denomination }} - {{ $cour->classe->niveau }}</h1>
                     <span class="status_corps">En cours...</span>
                     <div class="bloc_boutons">
                         <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard-teacher"></i>Demarrer la sceance</button>
@@ -23,7 +23,7 @@
                         <div class="container_panes">
                             <ul class="liste_type_2 nav nav-tabs" role="tablist">
                                 <li class="active">
-                                    <a class="anul_lien nav-tabs active" id="nav-home-tab" data-toggle="tab" href="#toutes_procedures" role="tab" aria-controls="#toutes_procedures" aria-selected="true">Forum (20)</a>
+                                    <a class="anul_lien nav-tabs active" id="nav-home-tab" data-toggle="tab" href="#toutes_procedures" role="tab" aria-controls="#toutes_procedures" aria-selected="true">Forum ({{ $forum->messages()->orderBy('created_at','ASC')->count()  }})</a>
                                 </li>
                                 <li>
                                     <a class="anul_lien nav-tabs" data-toggle="tab" href="#procedure1" role="tab" aria-controls="#procedure1" aria-selected="false">Diffusion</a>
@@ -42,26 +42,46 @@
 
 
                                 <div id="toutes_procedures" class="tab-pane fade show active">
-                                    <div class="container_forum">
-                                        <div class="container_discussion">
-                                            <div class="bloc_message" style="justify-content: flex-start;">
-                                                <div class="message">
-                                                    <h3 class="nom_emeteur">Ebobisse epoune</h3>
-                                                    <p class="messsage">Il  y a cours aujourd'hui Jane?</p>
-                                                    <span class="date_envoie">2h10min</span>
+                                    <div class="container_forum" id="container_forum">
+                                        <div class="container_discussion" id="discussion_forum">
+
+                                            @foreach ($forum->messages()->orderBy('created_at','ASC')->get() as $message)
+
+                                                @if($message->emetteur->id != auth()->user()->id)
+                                                <div class="bloc_message" style="justify-content: flex-start;">
+                                                    <div class="message">
+                                                        <h3 class="nom_emeteur">{{ $message->emetteur->nom }} {{ $message->emetteur->prenom }}</h3>
+                                                        <p class="messsage">
+                                                            {{ $message->contenu }} <br>
+                                                            @if($message->fichier)
+                                                                Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a></p>
+                                                            @endif
+                                                        </p>
+                                                        <span class="date_envoie">{{ $message->created_at->diffForHumans() }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="bloc_message" style="justify-content: flex-end;">
-                                                <div class="message message_envoye">
-                                                    <h3 class="nom_emeteur">Moi</h3>
-                                                    <p class="messsage">Oui dans quelques minutes</p>
-                                                    <span class="date_envoie">2h11min</span>
+                                                @else
+                                                <div class="bloc_message" style="justify-content: flex-end;">
+                                                    <div class="message message_envoye">
+                                                        <h3 class="nom_emeteur">Moi</h3>
+                                                        <p class="messsage">
+                                                            {{ $message->contenu }} <br>
+                                                            @if($message->fichier)
+                                                                Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a></p>
+                                                            @endif
+                                                        </p>
+                                                        <span class="date_envoie">{{ $message->created_at->diffForHumans() }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
+
+                                                @endif
+                                            @endforeach
+
                                         </div>
                                         <div class="bloc_recherche">
-                                            <form class="sous_bloc_recherche" id="formulaire_envoie_sms" method="" action="">
-                                                <input type="text" class="form-control" id="champs_message" placeholder="Ecrire un message" aria-label="Recherche" aria-describedby="basic-addon2">
+                                            <form class="sous_bloc_recherche" id="formulaire_envoie_forum" method="post" action="{{ route('messages.store',$forum) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="text" class="form-control" id="champs_message" name="content" placeholder="Ecrire un message" aria-label="Recherche" aria-describedby="basic-addon2">
                                                 <button type="button" class="bouton_recherche_1 bouton_attach">
                                                     <span class="input-group-text">
                                                         <i class="fas fa-paperclip"></i>
@@ -79,32 +99,31 @@
                                 </div>
                                 <div id="procedure1" class="tab-pane fade">
                                     <div class="container_forum">
-                                        <div class="container_discussion">
-                                            <div class="bloc_message" style="justify-content: flex-end;">
-                                                <div class="message message_envoye">
-                                                    <h3 class="nom_emeteur">Moi</h3>
-                                                    <p class="messsage">Devoir demain lors de la sceance</p>
-                                                    <span class="date_envoie">2h10min</span>
+                                        <div class="container_discussion" id="discussion_diffusion">
+                                            @foreach ($diffusion->messages()->orderBy('created_at','ASC')->get() as $message)
+
+                                                @if($message->emetteur->id != auth()->user()->id)
+                                                @else
+                                                <div class="bloc_message" style="justify-content: flex-end;">
+                                                    <div class="message message_envoye">
+                                                        <h3 class="nom_emeteur">Moi</h3>
+                                                        <p class="messsage">
+                                                            {{ $message->contenu }} <br>
+                                                            @if($message->fichier)
+                                                                Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a></p>
+                                                            @endif
+                                                        </p>
+                                                        <span class="date_envoie">{{ $message->created_at->diffForHumans() }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="bloc_message" style="justify-content: flex-end;">
-                                                <div class="message message_envoye">
-                                                    <h3 class="nom_emeteur">Moi</h3>
-                                                    <p class="messsage">Ne soyez pas en retard</p>
-                                                    <span class="date_envoie">2h11min</span>
-                                                </div>
-                                            </div>
-                                            <div class="bloc_message" style="justify-content: flex-end;">
-                                                <div class="message message_envoye">
-                                                    <h3 class="nom_emeteur">Moi</h3>
-                                                    <p class="messsage">www.justlearn.cm</p>
-                                                    <span class="date_envoie">2h11min</span>
-                                                </div>
-                                            </div>
+
+                                                @endif
+                                            @endforeach
                                         </div>
                                         <div class="bloc_recherche">
-                                            <form class="sous_bloc_recherche" id="formulaire_envoie_sms" method="" action="">
-                                                <input type="text" class="form-control" id="champs_message" placeholder="Ecrire un message" aria-label="Recherche" aria-describedby="basic-addon2">
+                                            <form class="sous_bloc_recherche" id="formulaire_envoie_diffusion" method="post" action="{{ route('messages.store',$diffusion) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="text" class="form-control" name="content" id="champs_message" placeholder="Ecrire un message" aria-label="Recherche" aria-describedby="basic-addon2">
                                                 <button type="button" class="bouton_recherche_1 bouton_attach">
                                                     <span class="input-group-text">
                                                         <i class="fas fa-paperclip"></i>
@@ -523,93 +542,23 @@
                             </div>
                         </div>
                         <div class="container_aside">
-                            <h2><i class="fas fa-users"></i> 20 en ligne</h2>
+                            <h2><i class="fas fa-users"></i> {{ count($users_online) + 1 }} en ligne</h2>
                             <div class="container_users">
                                 <div class="container_search_user">
                                     <input type="text" class="form-control" id="search_user" placeholder="Chercher un etudiant">
                                 </div>
                                 <div class="bloc_container_users">
+                                    @foreach ($users_online as $user)
                                     <div class="sous_contain_user">
                                         <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
+                                        <span class="nom_user">{{ $user->nom }} {{ $user->prenom }}</span>
                                         <div class="container_actions">
                                             <i class="fas fa-microphone" class="micro"></i>
                                             <i class="fas fa-hand-point-up"></i>
                                             <i class="fas fa-power-off"></i>
                                         </div>
                                     </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
-                                    <div class="sous_contain_user">
-                                        <i class="fas fa-user"></i>
-                                        <span class="nom_user">Ebobisse Epoune Parfait</span>
-                                        <div class="container_actions">
-                                            <i class="fas fa-microphone" class="micro"></i>
-                                            <i class="fas fa-hand-point-up"></i>
-                                            <i class="fas fa-power-off"></i>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="container_streaming">
@@ -805,6 +754,46 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
+
+            $(document).on('submit',"#formulaire_envoie_forum, #formulaire_envoie_diffusion",function(e){
+                e.preventDefault();
+                data = new FormData($(this)[0]);
+                $(this)[0].reset();
+                $.ajax({
+                    url:$(this).attr('action'),
+                    method:$(this).attr('method'),
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function(response){
+                    },
+                    error: function(xhr){
+                    }
+                });
+            });
+
+            setInterval(getForum, 4000);
+            setInterval(getDiffusion, 4000);
+
+            function getForum(){
+                $.ajax({
+                    url:'{{ route('messages.get.xhr',$forum) }}',
+                    method:'get',
+                    success: function(response){
+                        $('#discussion_forum').html(response.messages);
+                    }
+                })
+            }
+
+            function getDiffusion(){
+                $.ajax({
+                    url:'{{ route('messages.get.xhr',$diffusion) }}',
+                    method:'get',
+                    success: function(response){
+                        $('#discussion_diffusion').html(response.messages);
+                    }
+                })
+            }
         });
     </script>
 @endpush

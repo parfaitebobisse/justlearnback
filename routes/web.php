@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,11 +31,12 @@ Route::get('/emploie_temps_admin','RouteController@goTo_emploie_temps_admin')->n
 Route::get('/page_etudiant','RouteController@goTo_page_etudiant')->name('page_etudiant');
 
 Route::get('/page_professeur','RouteController@goTo_page_professeur')->name('page_professeur');
+Route::get('/cours/details/{id}','CoursController@detailCours')->name('cours.details');
 
+Route::post('/messages/{espace}/store','MessageController@store')->name('messages.store');
+Route::get('/messages/{id}/get/xhr','MessageController@getMessagesXhr')->name('messages.get.xhr');
 
-
-
-
+Route::post('/cours/store','CoursController@store')->name('cours.store');
 
 
 Auth::routes();

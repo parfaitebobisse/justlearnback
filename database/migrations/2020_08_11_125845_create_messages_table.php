@@ -15,9 +15,14 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date_envoie');
-            $table->integer('emetteur');
-            $table->integer('recepteur');
+            $table->unsignedBigInteger('emetteur_id');
+            $table->foreign('emetteur_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('recepteur_id')->nullable();
+            $table->foreign('recepteur_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('espace_echange_id')->nullable();
+            $table->foreign('espace_echange_id')->references('id')->on('espace_echanges')->onDelete('cascade');
+            $table->text('contenu');
+            $table->string('fichier');
             $table->timestamps();
         });
     }
