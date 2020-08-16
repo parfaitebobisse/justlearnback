@@ -6,7 +6,9 @@
             <p class="messsage">
                 {{ $message->contenu }} <br>
                 @if($message->fichier)
-                    Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a></p>
+                    Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}"    target="_blank">{{ $message->fichier }}</a>
+                    <img src="{{ asset('uploads/'.$message->fichier) }}" alt="" style="width: 30%;">
+                </p>
                 @endif
             </p>
             <span class="date_envoie">{{ $message->created_at->diffForHumans() }}</span>
@@ -19,7 +21,8 @@
             <p class="messsage">
                 {{ $message->contenu }} <br>
                 @if($message->fichier)
-                    Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a></p>
+                    Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a>
+                    <img src="{{ asset('uploads/'.$message->fichier) }}" alt="" style="width: 30%;"></p>
                 @endif
             </p>
             <span class="date_envoie">{{ $message->created_at->diffForHumans() }}</span>
