@@ -22,7 +22,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('espace_echange_id')->nullable();
             $table->foreign('espace_echange_id')->references('id')->on('espace_echanges')->onDelete('cascade');
             $table->text('contenu');
-            $table->string('fichier');
+            $table->string('fichier')->nullable();
             $table->timestamps();
         });
     }

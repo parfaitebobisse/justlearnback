@@ -14,8 +14,8 @@
                     <h1 class="titre_dashbord">{{ $cour->classe->denomination }} - {{ $cour->classe->niveau }}</h1>
                     <span class="status_corps">En cours...</span>
                     <div class="bloc_boutons">
-                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard-teacher"></i>Demarrer la sceance</button>
-                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" style="display: none;"><i class="fas fa-chalkboard-teacher"></i>Arrêter la sceance</button>
+                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard-teacher"></i>Demarrer la séance</button>
+                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" style="display: none;"><i class="fas fa-chalkboard-teacher"></i>Arrêter la séance</button>
                     </div>
                 </div>
                 <div class="bloc_contenu_dashbord">

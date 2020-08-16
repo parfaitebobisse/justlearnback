@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="container_texte">
                                         <span class="titre_cours">{{ $cours_etudiant->denomination }} - {{ $cours_etudiant->niveau }}</span>
-                                        <span>Sceance dans
+                                        <span>séance dans
                                             <span class="statu_cours">en cours...</span>
                                         </span>
                                     </div>
@@ -145,7 +145,7 @@
                                     </div>
                                     <div class="container_texte">
                                         <span class="titre_cours">{{ $cours_enseignant->denomination }} - {{ $cours_enseignant->niveau }}</span>
-                                        <span>Sceance dans
+                                        <span>séance dans
                                             <span class="statu_cours">en cours...</span>
                                         </span>
                                     </div>

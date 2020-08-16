@@ -15,8 +15,8 @@
                     <h1 class="titre_dashbord">Aucun cours sélectionné</h1>
                     <span class="status_corps">Faites le choix d'un cours pour plus d'informations</span>
                     <div class="bloc_boutons">
-                        {{-- <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Demarrer la sceance</button>
-                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" style="display: none;">Arrêter la sceance</button> --}}
+                        {{-- <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Demarrer la séance</button>
+                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" style="display: none;">Arrêter la séance</button> --}}
                     </div>
                 </div>
                 {{-- <div class="bloc_contenu_dashbord">
@@ -84,7 +84,7 @@
                                             <div class="bloc_message" style="justify-content: flex-start;">
                                                 <div class="message">
                                                     <h3 class="nom_emeteur">M. Ebobisse</h3>
-                                                    <p class="messsage">Devoir demain lors de la sceance</p>
+                                                    <p class="messsage">Devoir demain lors de la séance</p>
                                                     <span class="date_envoie">2h10min</span>
                                                 </div>
                                             </div>
