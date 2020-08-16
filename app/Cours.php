@@ -20,7 +20,7 @@ class Cours extends Model
 
     public function professeur()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function espaceEchange()

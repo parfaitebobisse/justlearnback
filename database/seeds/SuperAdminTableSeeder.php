@@ -53,7 +53,6 @@ class SuperAdminTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'classe_id'=>1,
             'type' => 'professeur',
             'nom' => 'Claude',
             'prenom' => 'Bock',
@@ -65,6 +64,7 @@ class SuperAdminTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'classe_id'=>1,
             'type' => 'etudiant',
             'nom' => 'Ebobisse',
             'prenom' => 'Parfait',

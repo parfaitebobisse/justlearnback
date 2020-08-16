@@ -6,20 +6,20 @@
 @endpush
 
 @section('title')
-    {{ auth()->user()->nom }} {{ auth()->user()->prenom }}
+    Liste des cours reçues
 @endsection
 
 @section('content')
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
-                    <h1 class="titre_dashbord">GL3 - RSE</h1>
-                    <span class="status_corps">En cours...</span>
+                    <h1 class="titre_dashbord">Aucun cours sélectionné</h1>
+                    <span class="status_corps">Faites le choix d'un cours pour plus d'informations</span>
                     <div class="bloc_boutons">
-                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Demarrer la sceance</button>
-                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" style="display: none;">Arrêter la sceance</button>
+                        {{-- <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Demarrer la sceance</button>
+                        <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" style="display: none;">Arrêter la sceance</button> --}}
                     </div>
                 </div>
-                <div class="bloc_contenu_dashbord">
+                {{-- <div class="bloc_contenu_dashbord">
                     <div class="bloc_sous_menu_dashbord">
                         <div class="container_panes">
                             <ul class="liste_type_2 nav nav-tabs" role="tablist">
@@ -525,7 +525,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </main>

@@ -94,68 +94,28 @@
             <div class="container_navigation">
                 <nav class="navigation_dashbord">
                     @if ($user_role == "etudiant")
-                        <ul>
-                            <li>
-                                <a href="#" class="anul_lien lien_navigation_dashbord active">
-                                    <div class="container_cours">
-                                        <div class="container_photo_cours">
-                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                        </div>
-                                        <div class="container_texte">
-                                            <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans
-                                                <span class="statu_cours">en cours...</span>
-                                            </span>
-                                        </div>
+                    <ul>
+                        @php
+                            $cours_etudiants = \App\Cours::where('classe_id',auth()->user()->classe_id)->get();
+                        @endphp
+                        @foreach ($cours_etudiants as $cours_etudiant)
+                        <li>
+                            <a href="{{ route('cours.details',$cours_etudiant) }}" class="anul_lien lien_navigation_dashbord {{ isset($cour) && $cour->id == $cours_etudiant->id ? "active" : ""}}">
+                                <div class="container_cours">
+                                    <div class="container_photo_cours">
+                                        <img data-src="{{asset('uploads/images/cours/'.$cours_etudiant->photo)}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
                                     </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="anul_lien lien_navigation_dashbord">
-                                    <div class="container_cours">
-                                        <div class="container_photo_cours">
-                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                        </div>
-                                        <div class="container_texte">
-                                            <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans
-                                                <span class="statu_cours">en cours...</span>
-                                            </span>
-                                        </div>
+                                    <div class="container_texte">
+                                        <span class="titre_cours">{{ $cours_etudiant->denomination }} - {{ $cours_etudiant->niveau }}</span>
+                                        <span>Sceance dans
+                                            <span class="statu_cours">en cours...</span>
+                                        </span>
                                     </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="anul_lien lien_navigation_dashbord">
-                                    <div class="container_cours">
-                                        <div class="container_photo_cours">
-                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                        </div>
-                                        <div class="container_texte">
-                                            <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans
-                                                <span class="statu_cours">en cours...</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="anul_lien lien_navigation_dashbord">
-                                    <div class="container_cours">
-                                        <div class="container_photo_cours">
-                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
-                                        </div>
-                                        <div class="container_texte">
-                                            <span class="titre_cours">GL3 - RSE</span>
-                                            <span>Sceance dans
-                                                <span class="statu_cours">en cours...</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                                </div>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
                     @elseif($user_role == "super_administrateur")
                         <ul>
                             <li><a href="{{ route('liste_utilisateurs') }}" class="anul_lien lien_navigation_dashbord {{ $page == "gestion_utilisateur" ? 'active':'' }}">Gestion des utilisateurs</a></li>
@@ -178,7 +138,7 @@
                         @endphp
                         @foreach ($cours_enseignants as $cours_enseignant)
                         <li>
-                            <a href="{{ route('cours.details',$cours_enseignant) }}" class="anul_lien lien_navigation_dashbord active">
+                            <a href="{{ route('cours.details',$cours_enseignant) }}" class="anul_lien lien_navigation_dashbord {{ isset($cour) && $cour->id == $cours_enseignant->id ? "active" : ""}}">
                                 <div class="container_cours">
                                     <div class="container_photo_cours">
                                         <img data-src="{{asset('uploads/images/cours/'.$cours_enseignant->photo)}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">

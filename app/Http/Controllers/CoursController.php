@@ -41,7 +41,19 @@ class CoursController extends Controller{
         $user_role = Auth::user()->type;
         $classes = Classe::all();
         $cour = Cours::findOrFail($id);
-        $users_online = $cour->classe->etudiants;
+        if(auth()->user()->type=="etudiant"){
+            $users_online = $cour
+                    ->classe
+                    ->etudiants()
+                    ->where('users.id','!=',auth()->user()->id)
+                    ->get();
+            $users_online[] = $cour->professeur;
+        }
+        else{
+            $users_online = $cour
+                    ->classe
+                    ->etudiants;
+        }
         // if($user_role=="professeur"){
         //     $users_online[] = auth()->user();
         // }

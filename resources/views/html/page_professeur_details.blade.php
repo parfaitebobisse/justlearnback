@@ -103,6 +103,18 @@
                                             @foreach ($diffusion->messages()->orderBy('created_at','ASC')->get() as $message)
 
                                                 @if($message->emetteur->id != auth()->user()->id)
+                                                <div class="bloc_message" style="justify-content: flex-start;">
+                                                    <div class="message">
+                                                        <h3 class="nom_emeteur">{{ $message->emetteur->nom }} {{ $message->emetteur->prenom }}</h3>
+                                                        <p class="messsage">
+                                                            {{ $message->contenu }} <br>
+                                                            @if($message->fichier)
+                                                                Fichier envoyé : <a href="{{ asset('uploads/'.$message->fichier) }}" target="_blank">{{ $message->fichier }}</a></p>
+                                                            @endif
+                                                        </p>
+                                                        <span class="date_envoie">{{ $message->created_at->diffForHumans() }}</span>
+                                                    </div>
+                                                </div>
                                                 @else
                                                 <div class="bloc_message" style="justify-content: flex-end;">
                                                     <div class="message message_envoye">
@@ -123,7 +135,8 @@
                                         <div class="bloc_recherche">
                                             <form class="sous_bloc_recherche" id="formulaire_envoie_diffusion" method="post" action="{{ route('messages.store',$diffusion) }}" enctype="multipart/form-data">
                                                 @csrf
-                                                <input type="text" class="form-control" name="content" id="champs_message" placeholder="Ecrire un message" aria-label="Recherche" aria-describedby="basic-addon2">
+                                                <input type="text" @if(auth()->user()->type == "etudiant") disabled @endif  class="form-control" name="content" id="champs_message" placeholder="{{ auth()->user()->type != "etudiant" ? "Ecrire un message" : "Seul le professeur peut émettre" }}" aria-label="Recherche" aria-describedby="basic-addon2">
+                                                @if (auth()->user()->type != "etudiant")
                                                 <button type="button" class="bouton_recherche_1 bouton_attach">
                                                     <span class="input-group-text">
                                                         <i class="fas fa-paperclip"></i>
@@ -135,6 +148,7 @@
                                                         <i class="fas fa-paper-plane"></i>
                                                     </span>
                                                 </button>
+                                                @endif
                                             </form>
                                         </div>
                                     </div>
