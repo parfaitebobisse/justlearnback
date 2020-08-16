@@ -171,7 +171,6 @@
 <script src="https://cdn.plyr.io/3.4.6/plyr.js"></script>
 <script src="{{asset('js/lazyload.min.js')}}"></script>
 <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg="nest"></script>
-@stack('js')
 <script>
     (function ($) {
         $(document).ready(function() {
@@ -289,5 +288,6 @@
         });
     });
 </script>
+@stack('js')
 <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg="nest"></script>
 </html>

@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','HomeController@loginIndex');
 
 Route::group(['prefix' => '/','middleware'=>'auth'], function () {
-    Route::get('/ajouter_utilisateur','RouteController@goTo_ajouter_utilisateur')->name('ajouter_utilisateur');
 
-    Route::get('/liste_utilisateurs','RouteController@goTo_liste_utilisateurs')->name('liste_utilisateurs');
+    Route::get('/liste_utilisateurs','UserController@index')->name('liste_utilisateurs');
+    Route::get('/ajouter_utilisateur','UserController@create')->name('ajouter_utilisateur');
+    Route::post('/ajouter_utilisateur','UserController@store')->name('ajouter_utilisateur');
+    Route::get('/modifier_utilisateur/{id}','UserController@edit')->name('modifier_utilisateur');
+    Route::post('/modifier_utilisateur/{id}','UserController@update')->name('modifier_utilisateur');
+    Route::delete('/supprimer_utilisateur/{id}','UserController@destroy')->name('supprimer_utilisateur');
     Route::get('/ajouter_plateforme','RouteController@goTo_ajouter_plateforme')->name('ajouter_plateforme');
     Route::get('/liste_plateformes','RouteController@goTo_liste_plateformes')->name('liste_plateformes');
 
