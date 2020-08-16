@@ -18,6 +18,11 @@
         float: right;
         margin-top: 30px;
     }
+    .modal.show .modal-dialog {
+        -webkit-transform: none;
+        transform: none;
+        background: white;
+    }
 </style>
             <div class="container_corps_dashbord">
                 <div class="entete_corps_dashbord">
@@ -191,9 +196,48 @@
                                                     </div>
                                                     <div class="container_actions_sujet">
                                                         <button type="button" id="soumettre" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button">Soumettre</button>
-                                                        <a href="#" class="telecharge"><i class="fas fa-download"></i></a>
+                                                        <a class="telecharge" data-toggle="modal" data-target="#epreuve{{ $evaluation->id }}" style="cursor:pointer;"><i class="fas fa-download"></i></a>
                                                         <a href="{{route('deleteEva',['id' => $evaluation->id])}}" class="telecharge"><i class="fas fa-trash-alt"></i></a>
                                                     </div>
+                                                    <div class="modal fade" id="epreuve{{ $evaluation->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title">Epreuve de {{ $evaluation->intitule }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                @php
+                                                                    $j=0;
+                                                                    $toi = count(json_decode($evaluation->reponses));
+                                                                    $toi = $toi/4;
+                                                                @endphp
+                                                                @for ($i = 0; $i < count(json_decode($evaluation->questions)); $i++)
+                                                                    <div style="margin-bottom: 1rem;">
+                                                                        <h4>{{ $i+1 }}. {{ json_decode($evaluation->questions)[$i] }}</h4>
+                                                                        <div style="margin-left: 2rem;">
+                                                                            @while ($j <= $toi)
+                                                                                <p>{{ json_decode($evaluation->reponses)[$j] }}</p>
+                                                                                @php
+                                                                                    $j++;
+                                                                                @endphp
+                                                                            @endwhile
+                                                                        </div>
+                                                                        @php
+                                                                            $toi = $toi + 4;
+                                                                        @endphp
+                                                                    </div>
+                                                                @endfor
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                              <button type="button" class="btn btn-primary download">Télécharger</button>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -660,6 +704,7 @@
 </body>
 @push('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script src="{{asset('js/evaluation.js')}}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

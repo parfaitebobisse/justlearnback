@@ -116,4 +116,17 @@ $( document ).ready(function() {
             }
         });
     });
+    
+    $('.download').on('click', function(event){
+        var doc = new jsPDF();
+        var title = $(this).parent().parent().find(".modal-title").text();
+        var divId = $(this).parent().parent().find(".modal-body").html();
+        // doc.fromHTML(divId, 35, 15, {
+        //     'width': 170
+        // });
+        doc.fromHTML(`<html><head><title>${title}</title></head><body><h4>${title}</h4><br>` + divId + `</body></html>`, 35, 15, {
+            'width': 170
+        });
+        doc.save('Evaluation.pdf');
+    });
 });

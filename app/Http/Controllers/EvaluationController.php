@@ -13,7 +13,7 @@ class EvaluationController extends Controller{
 
         $evaluation = new Evaluation();
         $evaluation->intitule = $request["intitule"];
-        $evaluation->classe = $request["cours"];
+        $evaluation->cours = $request["cours"];
         $evaluation->heure = "1";
         $evaluation->minutes = "0";
         $evaluation->questions = json_encode($request["question"]);

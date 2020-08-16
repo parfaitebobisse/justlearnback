@@ -8,7 +8,7 @@ class Evaluation extends Model
 {
     //
     protected $fillable = [
-        'id', 'intitule', 'heure', 'minutes', 'questions', 'reponses', 'classe'
+        'id', 'intitule', 'heure', 'minutes', 'questions', 'reponses', 'cours'
     ];
 
     public function sujet()
