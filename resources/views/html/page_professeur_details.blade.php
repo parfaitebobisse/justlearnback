@@ -212,6 +212,7 @@
                                                                 @php
                                                                     $j=0;
                                                                     $toi = count(json_decode($evaluation->reponses));
+                                                                    // var_dump($toi);
                                                                     $toi = $toi/4;
                                                                 @endphp
                                                                 @for ($i = 0; $i < count(json_decode($evaluation->questions)); $i++)
