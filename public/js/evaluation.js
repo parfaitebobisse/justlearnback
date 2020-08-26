@@ -117,6 +117,45 @@ $( document ).ready(function() {
         });
     });
     
+    $('.submitEva').on('click', function(event){
+        event.preventDefault();
+        $(this).html('En cours...');
+        var data = new FormData();
+        var id = $(this).attr('id');
+        id = id.split("_")[1];
+        data.append("id",id);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            }
+        });
+        
+        $.ajax({
+            url: $(this).attr('attr-route'),
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function(data) {
+                $(this).html('Soumettre');
+                console.log(data);
+                Swal.fire(
+                    "Bravo !",
+                    "Epreuve soumise avec succès",
+                    'success'
+                );
+            },
+            error: function(data) {
+                $(this).html('Soumettre');
+                Swal.fire(
+                    "Erreur !",
+                    "Désolé, une erreur est survenue.  Veuillez reessayer plutard !",
+                    'error'
+                );
+            }
+        });
+    });
+    
     $('.download').on('click', function(event){
         var doc = new jsPDF();
         var title = $(this).parent().parent().find(".modal-title").text();

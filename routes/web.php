@@ -40,6 +40,7 @@ Route::group(['prefix' => '/','middleware'=>'auth'], function () {
 
     Route::post('/evaluation/store','EvaluationController@store')->name('addEva');
     Route::post('/evaluation/addTime','EvaluationController@addTime')->name('addTime');
+    Route::post('/evaluation/submitEva','EvaluationController@submitEva')->name('submitEva');
     Route::get('/evaluation/delete/{id}','EvaluationController@delete')->name('deleteEva');
 
     Route::post('/messages/{espace}/store','MessageController@store')->name('messages.store');

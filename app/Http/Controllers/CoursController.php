@@ -81,7 +81,11 @@ class CoursController extends Controller{
             $diffusion->type="diffusion";
             $diffusion->save();
         }
-        return view('html.page_professeur_details',compact('cour','test','user_role','users_online','classes','forum','diffusion','evaluations','eva_metas'));
+        if(Auth::user()->type == "etudiant"){
+            return view('html.page_etudiant_details',compact('cour','test','user_role','users_online','classes','forum','diffusion','evaluations','eva_metas'));
+        }else{
+            return view('html.page_professeur_details',compact('cour','test','user_role','users_online','classes','forum','diffusion','evaluations','eva_metas'));
+        }
     }
 
 }

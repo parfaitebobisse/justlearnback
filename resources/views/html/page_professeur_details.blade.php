@@ -195,7 +195,7 @@
                                                         <span>Min</span>
                                                     </div>
                                                     <div class="container_actions_sujet">
-                                                        <button type="button" id="soumettre" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button">Soumettre</button>
+                                                        <button type="button" id="eva_{{$evaluation->id}}" class="button_goldwin button_type_1 anul_lien voir_bouton soumettre_button submitEva" attr-route="{{route('submitEva',['id' => $evaluation->id])}}" {{ $evaluation->status == "publish" ? 'disabled':'' }}>Soumettre</button>
                                                         <a class="telecharge" data-toggle="modal" data-target="#epreuve{{ $evaluation->id }}" style="cursor:pointer;"><i class="fas fa-download"></i></a>
                                                         <a href="{{route('deleteEva',['id' => $evaluation->id])}}" class="telecharge"><i class="fas fa-trash-alt"></i></a>
                                                     </div>

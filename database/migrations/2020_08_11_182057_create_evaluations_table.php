@@ -19,6 +19,7 @@ class CreateEvaluationsTable extends Migration
             $table->string('cours')->nullable();
             $table->string('heure')->nullable();
             $table->string('minutes')->nullable();
+            $table->string('status')->default("pending");
             $table->timestamps();
         });
     }

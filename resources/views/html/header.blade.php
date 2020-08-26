@@ -131,32 +131,58 @@
                             <li><a href="{{ route('consulter_requete') }}" class="anul_lien lien_navigation_dashbord {{ $page == "consultation_requete" ? 'active':'' }}">Consultation de requetes</a></li>
                             <li><a href="{{ route('consulter_bilan') }}" class="anul_lien lien_navigation_dashbord {{ $page == "consulter_bilan" ? 'active':'' }}">Consultation du bilan</a></li>
                         </ul>
+                    @elseif($user_role == "professeur")
+                        <ul>
+                            @php
+                                $cours_enseignants = \App\Cours::where('user_id',auth()->user()->id)->get();
+                            @endphp
+                            @foreach ($cours_enseignants as $cours_enseignant)
+                            <li>
+                                <a href="{{ route('cours.details',$cours_enseignant) }}" class="anul_lien lien_navigation_dashbord {{ isset($cour) && $cour->id == $cours_enseignant->id ? "active" : ""}}">
+                                    <div class="container_cours">
+                                        <div class="container_photo_cours">
+                                            <img data-src="{{asset('uploads/images/cours/'.$cours_enseignant->photo)}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        </div>
+                                        <div class="container_texte">
+                                            <span class="titre_cours">{{ $cours_enseignant->denomination }} - {{ $cours_enseignant->niveau }}</span>
+                                            <span>séance dans
+                                                <span class="statu_cours">en cours...</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        <div class="bloc_boutons">
+                            <button type="submit" id="creer_un_cours" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard"></i>Créer un cours</button>
+                        </div>
                     @else
-                    <ul>
-                        @php
-                            $cours_enseignants = \App\Cours::where('user_id',auth()->user()->id)->get();
-                        @endphp
-                        @foreach ($cours_enseignants as $cours_enseignant)
-                        <li>
-                            <a href="{{ route('cours.details',$cours_enseignant) }}" class="anul_lien lien_navigation_dashbord {{ isset($cour) && $cour->id == $cours_enseignant->id ? "active" : ""}}">
-                                <div class="container_cours">
-                                    <div class="container_photo_cours">
-                                        <img data-src="{{asset('uploads/images/cours/'.$cours_enseignant->photo)}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                        <ul>
+                            @php
+                                $cours_enseignants = \App\Cours::where('classe_id',auth()->user()->classe_id)->get();
+                            @endphp
+                            @foreach ($cours_enseignants as $cours_enseignant)
+                            <li>
+                                <a href="{{ route('cours.details',$cours_enseignant) }}" class="anul_lien lien_navigation_dashbord {{ isset($cour) && $cour->id == $cours_enseignant->id ? "active" : ""}}">
+                                    <div class="container_cours">
+                                        <div class="container_photo_cours">
+                                            <img data-src="{{asset('uploads/images/cours/'.$cours_enseignant->photo)}}" class="lazy dropdown-toggle photo_cours" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="icone cadena">
+                                        </div>
+                                        <div class="container_texte">
+                                            <span class="titre_cours">{{ $cours_enseignant->denomination }} - {{ $cours_enseignant->niveau }}</span>
+                                            <span>séance dans
+                                                <span class="statu_cours">en cours...</span>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="container_texte">
-                                        <span class="titre_cours">{{ $cours_enseignant->denomination }} - {{ $cours_enseignant->niveau }}</span>
-                                        <span>séance dans
-                                            <span class="statu_cours">en cours...</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                    <div class="bloc_boutons">
-                        <button type="submit" id="creer_un_cours" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard"></i>Créer un cours</button>
-                    </div>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        <div class="bloc_boutons">
+                            <button type="submit" id="creer_un_cours" class="button_goldwin button_type_1 anul_lien"><i class="fas fa-chalkboard"></i>Créer un cours</button>
+                        </div>
                     @endif
                 </nav>
             </div>

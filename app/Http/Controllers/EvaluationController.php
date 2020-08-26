@@ -65,4 +65,15 @@ class EvaluationController extends Controller{
         return response()->json(['type'=>'success','message'=>'Horaire changée avec succès']);
     }
 
+    public function submitEva(Request $request){
+        // $evaluation = Evaluation::findOrFail($request['id']);
+        DB::table('evaluations')->where([
+            ['id', $request['id']]
+        ])->update([
+            'status'=> 'publish'
+        ]);
+
+        return response()->json(['type'=>'success','message'=>'Evaluation soumise aves succès']);
+    }
+
 }
