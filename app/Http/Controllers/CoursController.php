@@ -6,6 +6,7 @@ use App\Classe;
 use App\Cours;
 use App\Espace_echange;
 use App\Evaluation;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -42,6 +43,9 @@ class CoursController extends Controller{
         $user_role = Auth::user()->type;
         $classes = Classe::all();
         $evaluations = Evaluation::all();
+        $eva_metas = DB::table("evaluation_meta")
+        ->orderBy('id', 'desc')
+        ->get();
         $cour = Cours::findOrFail($id);
         $test = $id;
         if(auth()->user()->type=="etudiant"){
@@ -77,7 +81,7 @@ class CoursController extends Controller{
             $diffusion->type="diffusion";
             $diffusion->save();
         }
-        return view('html.page_professeur_details',compact('cour','test','user_role','users_online','classes','forum','diffusion','evaluations'));
+        return view('html.page_professeur_details',compact('cour','test','user_role','users_online','classes','forum','diffusion','evaluations','eva_metas'));
     }
 
 }

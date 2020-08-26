@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvaluationsTable extends Migration
+class EvaluationMeta extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateEvaluationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluations', function (Blueprint $table) {
+        Schema::create('evaluation_meta', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('intitule');
-            $table->string('cours')->nullable();
-            $table->string('heure')->nullable();
-            $table->string('minutes')->nullable();
+            $table->string('evaluation');
+            $table->text('questions')->nullable();
+            $table->text('reponses')->nullable();
+            $table->text('juste')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateEvaluationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluations');
+        //
     }
 }

@@ -209,30 +209,19 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                @php
-                                                                    $toi = count(json_decode($evaluation->reponses));
-                                                                    $toi = $toi/4;
-                                                                    $tu = 4;
-                                                                    $j=0;
-                                                                @endphp
-                                                                @for ($i = 0; $i < count(json_decode($evaluation->questions)); $i++)
-                                                                    <div style="margin-bottom: 1rem;">
-                                                                        <h4>{{ $i+1 }}. {{ json_decode($evaluation->questions)[$i] }}</h4>
-                                                                        <div style="margin-left: 2rem;">
-                                                                            @while ($j < $tu)
-                                                                                @if ($tu != $toi)
-                                                                                    <p>{{ json_decode($evaluation->reponses)[$j] }}</p>
-                                                                                    @php
-                                                                                        $j++;
-                                                                                    @endphp
-                                                                                @endif
-                                                                            @endwhile
+                                                                @foreach ($eva_metas as $key => $eva_meta)
+                                                                    @if ($eva_meta->evaluation == $evaluation->id)
+                                                                        <div style="margin-bottom: 1rem;">
+                                                                            <h4>{{ $key+1 }}. {{ $eva_meta->questions }}</h4>
+                                                                            <div style="margin-left: 1rem;">
+                                                                                <p>{{ json_decode($eva_meta->reponses)[0] }}</p>
+                                                                                <p>{{ json_decode($eva_meta->reponses)[1] }}</p>
+                                                                                <p>{{ json_decode($eva_meta->reponses)[2] }}</p>
+                                                                                <p>{{ json_decode($eva_meta->reponses)[3] }}</p>
+                                                                            </div>
                                                                         </div>
-                                                                        @php
-                                                                            $tu = $tu + 4;
-                                                                        @endphp
-                                                                    </div>
-                                                                @endfor
+                                                                    @endif
+                                                                @endforeach
                                                             </div>
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
