@@ -210,24 +210,26 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 @php
-                                                                    $j=0;
                                                                     $toi = count(json_decode($evaluation->reponses));
-                                                                    // var_dump($toi);
                                                                     $toi = $toi/4;
+                                                                    $tu = 4;
+                                                                    $j=0;
                                                                 @endphp
                                                                 @for ($i = 0; $i < count(json_decode($evaluation->questions)); $i++)
                                                                     <div style="margin-bottom: 1rem;">
                                                                         <h4>{{ $i+1 }}. {{ json_decode($evaluation->questions)[$i] }}</h4>
                                                                         <div style="margin-left: 2rem;">
-                                                                            @while ($j <= $toi)
-                                                                                <p>{{ json_decode($evaluation->reponses)[$j] }}</p>
-                                                                                @php
-                                                                                    $j++;
-                                                                                @endphp
+                                                                            @while ($j < $tu)
+                                                                                @if ($tu != $toi)
+                                                                                    <p>{{ json_decode($evaluation->reponses)[$j] }}</p>
+                                                                                    @php
+                                                                                        $j++;
+                                                                                    @endphp
+                                                                                @endif
                                                                             @endwhile
                                                                         </div>
                                                                         @php
-                                                                            $toi = $toi + 4;
+                                                                            $tu = $tu + 4;
                                                                         @endphp
                                                                     </div>
                                                                 @endfor
