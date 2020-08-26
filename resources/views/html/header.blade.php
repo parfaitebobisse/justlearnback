@@ -45,7 +45,7 @@
                 </li>
             </ul>
             <div class="sous_bloc_haut">
-                <a href="#"><i class="fas fa-sticky-note"></i> Requête</a>
+                {{-- <a href="#"><i class="fas fa-sticky-note"></i> Requête</a> --}}
                 <a href="#"><i class="fas fa-user"></i> Mon profil</a>
                 <a href="#"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
             </div>
@@ -64,12 +64,18 @@
             <div class="dropdown">
                 <div id="bloc_espace_404">
                     <span class="anul_lien" id="lien_espace">{{ auth()->user()->nom }} {{ auth()->user()->prenom }}</span>
-                    <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="photo_profil" alt="icone cadena">
+                    @if($user_role == "super_administrateur")
+                        <img data-src="{{asset('sources/images/superadmin.jpg')}}" class="lazy dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="photo_profil" alt="icone cadena">
+                    @else
+                        <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" class="lazy dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="photo_profil" alt="icone cadena">
+                    @endif
                     <div class="dropdown-menu animate slideIn" aria-labelledby="photo_profil" id="dropdown_header">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-sticky-note"></i>
-                            Requête
-                        </a>
+                        @if ($user_role == "etudiant")
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-sticky-note"></i>
+                                Requête
+                            </a>
+                        @endif
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-user"></i>
                             Mon profil
@@ -108,7 +114,7 @@
                                     <div class="container_texte">
                                         <span class="titre_cours">{{ $cours_etudiant->denomination }} - {{ $cours_etudiant->niveau }}</span>
                                         <span>séance dans
-                                            <span class="statu_cours">en cours...</span>
+                                            <span class="statu_cours"> 02h30min</span>
                                         </span>
                                     </div>
                                 </div>

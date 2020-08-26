@@ -349,7 +349,7 @@
                             </div>
                         </div>
                         <div class="container_aside">
-                            <h2><i class="fas fa-users"></i> {{ count($users_online) + 1 }} en ligne</h2>
+                            <h2><i class="fas fa-users"></i> {{ count($users_online) }} en ligne</h2>
                             <div class="container_users">
                                 <div class="container_search_user">
                                     <input type="text" class="form-control" id="search_user" placeholder="Chercher un etudiant">

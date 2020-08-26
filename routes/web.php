@@ -47,6 +47,10 @@ Route::group(['prefix' => '/','middleware'=>'auth'], function () {
     Route::get('/messages/{id}/get/xhr','MessageController@getMessagesXhr')->name('messages.get.xhr');
 
     Route::post('/cours/store','CoursController@store')->name('cours.store');
+
+    Route::get('/liste_plateformes','plateformeController@majP')->name('liste_plateformes');
+    Route::post('/ajouter_plateforme','plateformeController@store')->name('ajouterPlateforme');
+
 });
 
 

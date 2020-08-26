@@ -199,7 +199,7 @@
                                                         <a class="telecharge" data-toggle="modal" data-target="#epreuve{{ $evaluation->id }}" style="cursor:pointer;"><i class="fas fa-download"></i></a>
                                                         <a href="{{route('deleteEva',['id' => $evaluation->id])}}" class="telecharge"><i class="fas fa-trash-alt"></i></a>
                                                     </div>
-                                                    <div class="modal fade" id="epreuve{{ $evaluation->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade epreuve_modal" id="epreuve{{ $evaluation->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
@@ -224,8 +224,8 @@
                                                                 @endforeach
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                              <button type="button" class="btn btn-primary download">Télécharger</button>
+                                                              <button type="button" class="btn btn-secondary button_goldwin" data-dismiss="modal">Annuler</button>
+                                                              <button type="button" class="btn btn-primary download button_goldwin">Télécharger</button>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -540,7 +540,7 @@
                             </div>
                         </div>
                         <div class="container_aside">
-                            <h2><i class="fas fa-users"></i> {{ count($users_online) + 1 }} en ligne</h2>
+                            <h2><i class="fas fa-users"></i> {{ count($users_online)}} en ligne</h2>
                             <div class="container_users">
                                 <div class="container_search_user">
                                     <input type="text" class="form-control" id="search_user" placeholder="Chercher un etudiant">

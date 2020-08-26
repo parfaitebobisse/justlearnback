@@ -46,10 +46,11 @@
                                                     <div class="table100-body js-pscroll">
                                                         <table>
                                                             <tbody>
+                                                                @foreach ($plateformes as $plateforme)
                                                                 <tr class="row100 body">
-                                                                    <td class="cell100 column1">1</td>
-                                                                    <td class="cell100 column2">0001</td>
-                                                                    <td class="cell100 column3">PFTI</td>
+                                                                    <td class="cell100 column1">{{ $loop->index+1 }} </td>
+                                                                    <td class="cell100 column2">{{ $plateforme->id }}</td>
+                                                                    <td class="cell100 column3">{{ $plateforme->denomination }}</td>
                                                                     <td class="cell100 column4">8</td>
                                                                     <td class="cell100 column5">
                                                                         <div class="container_confirmation_check bloc_question_checkbox">
@@ -72,7 +73,33 @@
                                                                             <i class="fas fa-trash-alt"></i>
                                                                         </button>
                                                                     </td>
+                                                                    {{-- <td class="cell100 column5">
+                                                                        <div class="container_confirmation_check bloc_question_checkbox">
+                                                                            <input type="checkbox" name="confirme" value="" id="confirmation_check1">
+                                                                            <label for="confirmation_check1" aria-describedby="label"><label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="cell100 column6">
+                                                                        <button data-matricule="{{ $user->id }}" data-nom="{{ $user->nom }}" data-prenom="{{ $user->prenom }}" data-sexe="{{ $user->sexe == 1 ? "M" : "F" }}" data-email="{{ $user->email }}" data-telephone="{{ $user->telephone }}" data-type="{{ $user->type }}" data-photo="{{ asset($user->photo) }}" type="button" id="suivant" class="button_goldwin button_type_1 anul_lien voir_bouton" title="voir" data-toggle="modal" data-target="#staticBackdrop">
+                                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="cell100 column7">
+                                                                        <a href="{{ route('modifier_utilisateur',$user) }}" type="button" id="suivant" class="button_goldwin button_type_1 anul_lien modifier_bouton" title="modifier">
+                                                                            <i class="fas fa-pencil-alt"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="cell100 column8">
+                                                                        <form action="{{ route('supprimer_utilisateur', $user) }}" method="post">
+                                                                            <input type="hidden" name="_method" value="delete">
+                                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                            <button type="submit" id="suivant" class="button_goldwin button_type_1 anul_lien supprimer_bouton" title="supprimer">
+                                                                                <i class="fas fa-trash-alt"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </td> --}}
                                                                 </tr>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>

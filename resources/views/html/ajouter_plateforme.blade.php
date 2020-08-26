@@ -21,13 +21,14 @@
                 </div>
                 <div class="bloc_contenu_dashbord">
                     <div class="bloc_sous_menu_dashbord">
-                        <form method="" action="">
+                        <form method="POST" action="{{route('ajouterPlateforme') }}" enctype="multipart/form-data">
+                            @csrf
                             <div class="bloc_contenu_dashbord">
                                 <div class="sous_bloc_form">
                                     <div class="container_champs_paiement denomination_plateforme">
-                                        <label for="nom" class="label_paiement">Denomination</label>
+                                        <label for="denomination" class="label_paiement">Denomination</label>
                                         <div class="sous_container_paiement">
-                                            <input type="text" class="champs_text_paiement" name="nom" placeholder="PFTI">
+                                            <input type="text" class="champs_text_paiement" name="denomination" placeholder="PFTI">
                                         </div>
                                     </div>
                                 </div>
@@ -60,14 +61,6 @@
                                             <input type="text" class="champs_text_paiement" name="nom" placeholder="PFTI">
                                         </div>
                                         <button type="submit" id="creer_compte" class="button_goldwin button_type_1 anul_lien">Nouvelle classe</button>
-                                    </div>
-                                </div>
-                                <div class="sous_bloc_form">
-                                    <div class="container_champs_paiement champ_court" id="champs_photo">
-                                        <div class="bloc_depot">
-                                            <img data-src="{{asset('sources/images/2b7a5c3c051f471f1674da3f7d222a5b78390ea1.png')}}" alt="image_document" class="image_depot lazy">
-                                            <input type="file" class="image_upload" />
-                                        </div>
                                     </div>
                                 </div>
                             </div>

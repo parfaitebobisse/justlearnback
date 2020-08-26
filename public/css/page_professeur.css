@@ -251,8 +251,8 @@
 
 
 .sous_contain_user .nom_user{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 6px;
+    margin-right: 3px;
     width: 65%;
     height: 25px;
     overflow: hidden;
@@ -1066,5 +1066,28 @@
 }
 
 .bloc_boutons i, .container_aside i{
+    margin-right: 4px;
+}
+
+.epreuve_modal h5{
+    font-weight: 600;
+    font-size: 23px;
+    width: 100%;
+    text-align: center;
+}
+
+.epreuve_modal h4{
+    font-size: 20px;
+    color: #FFF;
+}
+
+.epreuve_modal .modal-body{
+    background-color: #151414;
+    color: #FFF;
+}
+
+.epreuve_modal  p::before{
+    content: '-';
+    display: inline-block;
     margin-right: 10px;
 }

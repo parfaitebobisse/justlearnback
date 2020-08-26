@@ -44,7 +44,7 @@ class CoursController extends Controller{
         $classes = Classe::all();
         $evaluations = Evaluation::all();
         $eva_metas = DB::table("evaluation_meta")
-        ->orderBy('id', 'desc')
+        ->orderBy('id', 'asc')
         ->get();
         $cour = Cours::findOrFail($id);
         $test = $id;

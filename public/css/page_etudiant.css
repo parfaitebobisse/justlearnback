@@ -251,8 +251,8 @@
 
 
 .sous_contain_user .nom_user{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 6px;
+    margin-right: 3px;
     width: 65%;
     height: 25px;
     overflow: hidden;
@@ -1106,4 +1106,8 @@
 
 .fausse_reponse label{
     color: red;
+}
+
+.bloc_boutons i, .container_aside i{
+    margin-right: 4px;
 }
