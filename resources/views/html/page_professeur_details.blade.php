@@ -209,10 +209,13 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                @php
+                                                                    $j = 1;
+                                                                @endphp
                                                                 @foreach ($eva_metas as $key => $eva_meta)
                                                                     @if ($eva_meta->evaluation == $evaluation->id)
                                                                         <div style="margin-bottom: 1rem;">
-                                                                            <h4>{{ $key+1 }}. {{ $eva_meta->questions }}</h4>
+                                                                            <h4>{{ $j }}. {{ $eva_meta->questions }}</h4>
                                                                             <div style="margin-left: 1rem;">
                                                                                 <p>{{ json_decode($eva_meta->reponses)[0] }}</p>
                                                                                 <p>{{ json_decode($eva_meta->reponses)[1] }}</p>
@@ -220,6 +223,9 @@
                                                                                 <p>{{ json_decode($eva_meta->reponses)[3] }}</p>
                                                                             </div>
                                                                         </div>
+                                                                        @php
+                                                                            $j++;
+                                                                        @endphp
                                                                     @endif
                                                                 @endforeach
                                                             </div>

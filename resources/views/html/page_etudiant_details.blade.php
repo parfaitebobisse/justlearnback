@@ -157,46 +157,46 @@
                                                 <form method="" action="" id="formulaire_evaluation">
                                                     <div class="corps_sujet_etudiant">
                                                         <div class="titre_sujet_etudiant">
-                                                            <span class="time_epreuve">-{{ $evaluation->heure }} h {{ $evaluation->minutes }}min</span>
+                                                            <span class="time_epreuve" id="timer">{{ $evaluation->heure }} h {{ $evaluation->minutes }}min</span>
                                                             <h2>{{ $evaluation->intitule }} - {{ $cour->classe->denomination }} {{ $cour->classe->niveau }}</h2>
                                                         </div>
                                                         <div class="corps_questions">
-                                                            @foreach ($eva_metas as $key => $eva_meta)
-                                                                @if ($eva_meta->evaluation == $evaluation->id)
-                                                                    <div class="question_etudiant">
-                                                                        <span>{{ $key+1 }}. </span><span class="libelle_question_etudiant">{{ $eva_meta->questions }}</span>
-                                                                        <div class="bloc_reponse_etudiant">
-                                                                            <div class="reponse_etudiant">
-                                                                                <div class="container_champs_paiement container_radios container_radios_type_paiement">
-                                                                                    <div class="container_confirmation_check container_radio">
-                                                                                        <input type="radio" name="rep{{ $key+1 }}[]" id="radio_homme{{ $key+1 }}0" value="{{ json_decode($eva_meta->reponses)[0] }}">
-                                                                                        <label for="radio_homme{{ $key+1 }}0">{{ json_decode($eva_meta->reponses)[0] }}</label>
-                                                                                    </div>
-                                                                                    <div class="container_confirmation_check container_radio">
-                                                                                        <input type="radio" name="rep{{ $key+1 }}[]" value="{{ json_decode($eva_meta->reponses)[1] }}"id="radio_homme{{ $key+1 }}1">
-                                                                                        <label for="radio_homme{{ $key+1 }}1">{{ json_decode($eva_meta->reponses)[1] }}</label>
-                                                                                    </div>
-                                                                                    <div class="container_confirmation_check container_radio">
-                                                                                        <input type="radio" name="rep{{ $key+1 }}[]" value="{{ json_decode($eva_meta->reponses)[2] }}"id="radio_homme{{ $key+1 }}2">
-                                                                                        <label for="radio_homme{{ $key+1 }}2">{{ json_decode($eva_meta->reponses)[2] }}</label>
-                                                                                    </div>
-                                                                                    <div class="container_confirmation_check container_radio">
-                                                                                        <input type="radio" name="rep{{ $key+1 }}[]" value="{{ json_decode($eva_meta->reponses)[3] }}"id="radio_homme{{ $key+1 }}3">
-                                                                                        <label for="radio_homme{{ $key+1 }}3">{{ json_decode($eva_meta->reponses)[3] }}</label>
+                                                                @foreach ($eva_metas as $key => $eva_meta)
+                                                                    @if ($eva_meta->evaluation == $evaluation->id)
+                                                                        <div class="question_etudiant">
+                                                                            <span>{{ $key+1 }}. </span><span class="libelle_question_etudiant">{{ $eva_meta->questions }}</span>
+                                                                            <div class="bloc_reponse_etudiant">
+                                                                                <div class="reponse_etudiant">
+                                                                                    <div class="container_champs_paiement container_radios container_radios_type_paiement">
+                                                                                        <div class="container_confirmation_check container_radio">
+                                                                                            <input type="radio" name="rep_{{ $key+1 }}[]" id="radio_homme{{ $key+1 }}0" value="{{ json_decode($eva_meta->reponses)[0] }}">
+                                                                                            <label for="radio_homme{{ $key+1 }}0">{{ json_decode($eva_meta->reponses)[0] }}</label>
+                                                                                        </div>
+                                                                                        <div class="container_confirmation_check container_radio">
+                                                                                            <input type="radio" name="rep_{{ $key+1 }}[]" value="{{ json_decode($eva_meta->reponses)[1] }}"id="radio_homme{{ $key+1 }}1">
+                                                                                            <label for="radio_homme{{ $key+1 }}1">{{ json_decode($eva_meta->reponses)[1] }}</label>
+                                                                                        </div>
+                                                                                        <div class="container_confirmation_check container_radio">
+                                                                                            <input type="radio" name="rep_{{ $key+1 }}[]" value="{{ json_decode($eva_meta->reponses)[2] }}"id="radio_homme{{ $key+1 }}2">
+                                                                                            <label for="radio_homme{{ $key+1 }}2">{{ json_decode($eva_meta->reponses)[2] }}</label>
+                                                                                        </div>
+                                                                                        <div class="container_confirmation_check container_radio">
+                                                                                            <input type="radio" name="rep_{{ $key+1 }}[]" value="{{ json_decode($eva_meta->reponses)[3] }}"id="radio_homme{{ $key+1 }}3">
+                                                                                            <label for="radio_homme{{ $key+1 }}3">{{ json_decode($eva_meta->reponses)[3] }}</label>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                @endif
-                                                            @endforeach
+                                                                    @endif
+                                                                @endforeach
                                                         </div>
                                                     </div>
                                                     <div class="bottom_evaluation">
                                                         <div class="bloc_boutons">
                                                             <button type="reset" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton">Tout effacer</button>
-                                                            <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien">Rendre la copie</button>
-                                                            <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien supprimer_bouton" disabled>Annuler</button>
+                                                            <button type="submit" id="envoyer_document" class="button_goldwin button_type_1 anul_lien rendre_copie">Rendre la copie</button>
+                                                            <button type="submit" id="start-button" class="button_goldwin button_type_1 anul_lien">Commencer</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -636,6 +636,157 @@
     </div>
 </body>
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    var kstio = []; 
+    var interval = '';
+    var game = {
+    // state and jquery selectors
+    state: {
+        startButton: $("#start-button"),
+        gameContainer: $("#game"),
+        scoreNumber: $(".score-number"),
+        questionsView: $(".questions"),
+        gameEndView: $("#game-end"),
+        gameEndViewTimesUp: $("#game-end-times-up"),
+        gameEndText: $("#game-end-text"),
+        timeOutText: $("#timer"),
+        gauge: $("#gauge"),
+        questions: $(".questionk"),
+        answers: $(".answer"),
+        timer: $("#timer"),
+        indicators: $(".indicator"),
+        numberOfQuestions: $(".questionk").length,
+        questionsAnswered: 0,
+        correctAnswers: 0
+    },
+
+    init: function() {
+        game.registerEventHandlers();
+    },
+
+    registerEventHandlers: function() {
+        game.state.answers.on("click touch", function(e) {
+        //e.preventDefault();
+        game.checkAnswer($(this));
+        });
+
+        game.state.startButton.on("click touch", function(e) {
+        e.preventDefault();
+        game.start();
+        });
+    },
+
+    start: function() {
+        game.startTimer();
+        game.state.startButton.unbind("click touch");
+    },
+
+    startTimer: function() {
+        var zeroFill = function(units) {
+        return units < 10 ? "0" + units + "" : units;
+        };
+        var count = 0;
+        // console.log(count);
+        @php
+            $temps = ($evaluation->heure*60)+$evaluation->minutes;
+        @endphp
+        interval = window.setInterval(function() {
+            var centisecondsRemaining = {{ $temps*6000 }} - count;
+            var min = Math.floor(centisecondsRemaining / 100 / 60);
+            var sec = zeroFill(Math.floor(centisecondsRemaining / 100 % 60));
+            var cs = zeroFill(centisecondsRemaining % 100);
+            game.state.timer.text(min + ":" + sec);
+            count++;
+            if (centisecondsRemaining === 0) {
+                clearInterval(interval);
+                // wait a second
+                window.setTimeout(function() {
+                    //end game else go to next question
+                }, 1000);
+                // game.test();
+                game.timesUp();
+            }
+        }, 10);
+    },
+
+    checkAnswer: function(answer) {
+
+    },
+
+    updateProgress: function(correct) {
+    },
+
+    giveAnswerFeedback: function(answer) {
+    },
+
+    goToNextQuestion: function() {
+    },
+    timesUp: function() {
+        var endText =
+        "Temps expiré";
+        // game.state.questionsView.fadeOut(400, function() {
+            game.state.timeOutText[0].innerHTML = endText;
+            $("#formulaire_evaluation input").prop("disabled",true)
+            // game.state.gameEndViewTimesUp.fadeIn(200);
+        // });
+            var data = new FormData;
+            data.append('idUser',$("#idUser").val());
+            data.append('cours',$("input[name='idProf']").val());
+            console.log($("input[name='idProf']").val());
+            data.append('idQuizz',$("input[name='idQuizz']").val());
+            data.append('note',game.state.correctAnswers+" sur "+game.state.numberOfQuestions);
+            for (let index = 0; index < kstio.length; index++) {
+                const element = kstio[index];
+                data.append('kstio[]',kstio[index].question);
+                data.append('rep[]',kstio[index].reponse);
+                
+            }
+            data.append('csrf_test_name',$('#CSRF_TOKEN').val());
+            // data.append('_token',$('input[name="_token"]').val());
+            $.ajax({
+                url: $('#base_url').val()+"sendNote",
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(data){
+                }
+            });
+    },
+    test: function() {
+        // game.startTimer();
+    },
+
+    endGame: function() {
+        
+            var data = new FormData;
+            data.append('idUser',$("#idUser").val());
+            data.append('cours',$("input[name='idProf']").val());
+            data.append('csrf_test_name',$('#CSRF_TOKEN').val());
+            // data.append('_token',$('input[name="_token"]').val());
+            $.ajax({
+                url: $('#base_url').val()+"sendNote",
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(data){
+                }
+            });
+    }
+    };
+
+    game.init();
+
+  </script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
